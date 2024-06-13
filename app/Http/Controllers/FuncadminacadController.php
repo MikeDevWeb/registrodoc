@@ -1,0 +1,88 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Funcadminacad;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use App\Http\Requests\FuncadminacadRequest;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\View\View;
+
+class FuncadminacadController extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    /**
+     * Display a listing of the resource.
+     */
+    public function index(Request $request): View
+    {
+        $funcadminacads = Funcadminacad::paginate();
+
+        return view('funcadminacad.index', compact('funcadminacads'))
+            ->with('i', ($request->input('page', 1) - 1) * $funcadminacads->perPage());
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create(): View
+    {
+        $funcadminacad = new Funcadminacad();
+
+        return view('funcadminacad.create', compact('funcadminacad'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(FuncadminacadRequest $request): RedirectResponse
+    {
+        Funcadminacad::create($request->validated());
+
+        return Redirect::route('funcadminacads.index')
+            ->with('success', 'Funcadminacad created successfully.');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show($id): View
+    {
+        $funcadminacad = Funcadminacad::find($id);
+
+        return view('funcadminacad.show', compact('funcadminacad'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit($id): View
+    {
+        $funcadminacad = Funcadminacad::find($id);
+
+        return view('funcadminacad.edit', compact('funcadminacad'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(FuncadminacadRequest $request, Funcadminacad $funcadminacad): RedirectResponse
+    {
+        $funcadminacad->update($request->validated());
+
+        return Redirect::route('funcadminacads.index')
+            ->with('success', 'Funcadminacad updated successfully');
+    }
+
+    public function destroy($id): RedirectResponse
+    {
+        Funcadminacad::find($id)->delete();
+
+        return Redirect::route('funcadminacads.index')
+            ->with('success', 'Funcadminacad deleted successfully');
+    }
+}
