@@ -1059,13 +1059,13 @@
                         <div class="flex flex-col items-center">
                             <h2 class="text-lg font-semibold">Contacto</h2>
                             <p class="mt-1 text-sm/relaxed">
-                                <a href="mailto:miguel.vertis.villanueva@gmail.com">miguel.vertis.villanueva@gmail.com</a>
+                                <a href="mailto:contacto@mail.com">contacto@mail.com</a>
                                 <br>
-                                +591 757 932 39
+                                +591 12312312
                                 <br>
-                                Ingeniero <b>Miguel A. Vertis V.</b>
+                                Área académica <b>ESAM Sucre 2</b>
                                 <br>
-                                Asistente de TI - ESAM Sucre 2
+                                Desarrollado por el Departamento de TI - ESAM Sucre 2
                             </p>
                         </div>
                         <div class="flex flex-col items-center">

@@ -23,7 +23,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost/regisdocente/public/'),
+    'url' => env('APP_URL', 'http://www.regisdocente.com/'),
 
     /*
     |--------------------------------------------------------------------------
@@ -86,12 +86,10 @@ return [
     | allow maintenance mode to be controlled across multiple machines.
     |
     | Supported drivers: "file", "cache"
-    |
     */
 
     'maintenance' => [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
-
 ];
