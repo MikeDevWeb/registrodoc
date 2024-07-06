@@ -1,4 +1,8 @@
 *,
+#contenido-para-imprimir {
+    display: none;
+}
+
 ::after,
 ::before
 {

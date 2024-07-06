@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticulogeneralController;
 use App\Http\Controllers\ArticulorevistaController;
 use App\Http\Controllers\ContactoController;
+use App\Mail\HelloMail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DatospersonaController;
 use App\Http\Controllers\DatospersonbController;
@@ -19,8 +20,16 @@ use App\Http\Controllers\LibropublicadoController;
 use App\Http\Controllers\TextopublicadoController;
 use App\Http\Controllers\TutortribunalController;
 use App\Http\Controllers\TrabproyinvconcluidoController;
+use Illuminate\Support\Facades\Mail;
+
+// Route::get('/', function () {
+
+// Mail::to('miguel.vertis@esam.edu.bo')->send(new HelloMail());
+// });
+
 
 Route::get('/', function () {
+
     return view('welcome');
 });
 
@@ -28,7 +37,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('datospersonas', DatospersonaController::class);
+// Route::get('/datospersonas/pdf', [DatospersonaController::class, 'generarPDF'])->name('datospersonas.pdf');
+
 Route::resource('datospersonbs', DatospersonbController::class);
+
 Route::resource('expdocentes', ExpdocenteController::class);
 Route::resource('expoconferencias', ExpoconferenciaController::class);
 Route::resource('expoeventos', ExpoeventoController::class);

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Datospersona;
 use App\Models\Datospersonb;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\DatospersonbRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -22,18 +24,20 @@ class DatospersonbController extends Controller
     {
         $datospersonbs = Datospersonb::paginate();
 
-        return view('datospersonb.index', compact('datospersonbs'))
+        $datospersona = Datospersona::all();
+
+        return view('datospersonb.index', compact('datospersonbs', 'datospersona'))
             ->with('i', ($request->input('page', 1) - 1) * $datospersonbs->perPage());
     }
-
     /**
      * Show the form for creating a new resource.
      */
     public function create(): View
     {
         $datospersonb = new Datospersonb();
-
-        return view('datospersonb.create', compact('datospersonb'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('datospersonb.create', compact('datospersonb', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -44,7 +48,7 @@ class DatospersonbController extends Controller
         Datospersonb::create($request->validated());
 
         return Redirect::route('datospersonbs.index')
-            ->with('success', 'Datospersonb created successfully.');
+            ->with('Genial!', 'Se ha creado correctamente.');
     }
 
     /**
@@ -63,8 +67,9 @@ class DatospersonbController extends Controller
     public function edit($id): View
     {
         $datospersonb = Datospersonb::find($id);
-
-        return view('datospersonb.edit', compact('datospersonb'));
+        $datospersona = Datospersona::all();
+        $datospersonas = $datospersona;
+        return view('datospersonb.edit', compact('datospersonb', 'datospersonas', 'datospersona'));
     }
 
     /**

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\DatospersonaRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use PrintJS;
 
 class DatospersonaController extends Controller
 {
@@ -25,6 +26,16 @@ class DatospersonaController extends Controller
         return view('datospersona.index', compact('datospersonas'))
             ->with('i', ($request->input('page', 1) - 1) * $datospersonas->perPage());
     }
+
+    // public function imprimir($id) {
+    //     $datospersonas = Datospersona::find($id);
+
+    //     // Renderiza la vista con el contenido para imprimir
+    //     $html = view('productos.imprimir', compact('producto'));
+
+    //     // Imprime el contenido usando la librería de impresión
+    //     PrintJS::print($html);
+    // }
 
     /**
      * Show the form for creating a new resource.

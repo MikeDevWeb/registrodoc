@@ -48,7 +48,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Datospersona extends Model
 {
-    
+
     protected $perPage = 20;
 
     /**
@@ -66,7 +66,7 @@ class Datospersona extends Model
     {
         return $this->belongsTo(\App\Models\User::class, 'user_id', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -74,7 +74,7 @@ class Datospersona extends Model
     {
         return $this->hasMany(\App\Models\Articulogeneral::class, 'id', 'datospersona_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -82,7 +82,7 @@ class Datospersona extends Model
     {
         return $this->hasMany(\App\Models\Articulorevista::class, 'id', 'datospersona_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -90,7 +90,7 @@ class Datospersona extends Model
     {
         return $this->hasMany(\App\Models\Contacto::class, 'id', 'datospersona_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -98,7 +98,7 @@ class Datospersona extends Model
     {
         return $this->hasMany(\App\Models\Datospersonb::class, 'id', 'datospersona_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -106,7 +106,7 @@ class Datospersona extends Model
     {
         return $this->hasMany(\App\Models\Expdocente::class, 'id', 'datospersona_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -114,7 +114,7 @@ class Datospersona extends Model
     {
         return $this->hasMany(\App\Models\Expoconferencia::class, 'id', 'datospersona_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -122,7 +122,7 @@ class Datospersona extends Model
     {
         return $this->hasMany(\App\Models\Expoevento::class, 'id', 'datospersona_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -130,7 +130,7 @@ class Datospersona extends Model
     {
         return $this->hasMany(\App\Models\Exposeminario::class, 'id', 'datospersona_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -138,7 +138,7 @@ class Datospersona extends Model
     {
         return $this->hasMany(\App\Models\Expprograrel::class, 'id', 'datospersona_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -146,7 +146,7 @@ class Datospersona extends Model
     {
         return $this->hasMany(\App\Models\Formcurso::class, 'id', 'datospersona_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -154,7 +154,7 @@ class Datospersona extends Model
     {
         return $this->hasMany(\App\Models\Formpostgrado::class, 'id', 'datospersona_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -162,7 +162,7 @@ class Datospersona extends Model
     {
         return $this->hasMany(\App\Models\Formprofesional::class, 'id', 'datospersona_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -170,7 +170,7 @@ class Datospersona extends Model
     {
         return $this->hasMany(\App\Models\Funcadminacad::class, 'id', 'datospersona_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -178,7 +178,7 @@ class Datospersona extends Model
     {
         return $this->hasMany(\App\Models\Libropublicado::class, 'id', 'datospersona_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -186,7 +186,7 @@ class Datospersona extends Model
     {
         return $this->hasMany(\App\Models\Reconocimiento::class, 'id', 'datospersona_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -194,7 +194,7 @@ class Datospersona extends Model
     {
         return $this->hasMany(\App\Models\Textopublicado::class, 'id', 'datospersona_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -202,7 +202,7 @@ class Datospersona extends Model
     {
         return $this->hasMany(\App\Models\Trabproyinvconcluido::class, 'id', 'datospersona_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -210,5 +210,5 @@ class Datospersona extends Model
     {
         return $this->hasMany(\App\Models\Tutortribunal::class, 'id', 'datospersona_id');
     }
-    
+
 }

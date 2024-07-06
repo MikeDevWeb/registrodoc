@@ -2,7 +2,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ $datospersonb->name ?? __('Show') . " " . __('Datospersonb') }}
+    {{ $datospersonb->name ?? __('Revisar') . " " . __('Datos Personales B') }}
 @endsection
 
 @section('content')
@@ -12,21 +12,24 @@
                 <div class="card">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Datospersonb</span>
+                            <span class="card-title">{{ __('Revisar') }} Datos Personales B</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary btn-sm" href="{{ route('datospersonbs.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary btn-sm" href="{{ route('datospersonbs.index') }}"> {{ __('Volver') }}</a>
                         </div>
                     </div>
 
                     <div class="card-body bg-white">
-
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Direccion:</strong>
+                                    <strong>Docente:</strong>
+                                    {{ $datospersonb->datospersona->nombre }} {{ $datospersonb->datospersona->apellidoPaterno }} {{ $datospersonb->datospersona->apellidoMaterno }}
+                                </div>
+                                <div class="form-group mb-2 mb20">
+                                    <strong>Dirección:</strong>
                                     {{ $datospersonb->direccion }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Telefono:</strong>
+                                    <strong>Teléfono:</strong>
                                     {{ $datospersonb->telefono }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
@@ -38,46 +41,46 @@
                                     {{ $datospersonb->correo }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Idiomanativo:</strong>
+                                    <strong>Idioma Nativo:</strong>
                                     {{ $datospersonb->idiomaNativo }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Nivelidiomaescritura:</strong>
+                                    <strong>Nivel de escritura:</strong>
                                     {{ $datospersonb->nivelidiomaescritura }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Nivelidiomalectura:</strong>
+                                    <strong>Nivel de lectura:</strong>
                                     {{ $datospersonb->nivelidiomalectura }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Nivelidiomahabla:</strong>
+                                    <strong>Nivel de habla:</strong>
                                     {{ $datospersonb->nivelidiomahabla }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Idiomasecundario:</strong>
+                                    <strong>Idioma Secundario:</strong>
                                     {{ $datospersonb->idiomaSecundario }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Nivelidiomasecundarioescritura:</strong>
+                                    <strong>Nivel de escritura:</strong>
                                     {{ $datospersonb->nivelidiomaSecundarioescritura }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Nivelidiomasecundariolectura:</strong>
+                                    <strong>Nivel de lectura:</strong>
                                     {{ $datospersonb->nivelidiomaSecundariolectura }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Nivelidiomasecundariohabla:</strong>
+                                    <strong>Nivel de habla:</strong>
                                     {{ $datospersonb->nivelidiomaSecundariohabla }}
                                 </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Datospersona Id:</strong>
-                                    {{ $datospersonb->datospersona_id }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>User Id:</strong>
-                                    {{ $datospersonb->user_id }}
-                                </div>
 
+                                <div class="form-group mb-2 mb20">
+                                    <strong>Registrado por:</strong>
+                                    {{ $datospersonb->user->name }}
+                                </div>
+                                <div class="form-group mb-2 mb20">
+                                    <strong>Fecha de registro:</strong>
+                                    {{ $datospersonb->fecharegistro }}
+                                </div>
                     </div>
                 </div>
             </div>

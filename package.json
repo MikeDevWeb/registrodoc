@@ -12,5 +12,10 @@
         "laravel-vite-plugin": "^1.0",
         "sass": "^1.56.1",
         "vite": "^5.0"
+    },
+    "dependencies": {
+        "datatables": "^1.10.18",
+        "jspdf": "^2.5.1",
+        "print-js": "^1.6.0"
     }
 }

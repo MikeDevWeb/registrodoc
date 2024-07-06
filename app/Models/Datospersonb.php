@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Datospersona;
 /**
  * Class Datospersonb
  *
@@ -32,7 +32,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Datospersonb extends Model
 {
-    
     protected $perPage = 20;
 
     /**
@@ -48,9 +47,9 @@ class Datospersonb extends Model
      */
     public function datospersona()
     {
-        return $this->belongsTo(\App\Models\Datospersona::class, 'datospersona_id', 'id');
+        return $this->belongsTo(Datospersona::class, 'datospersona_id', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -58,5 +57,5 @@ class Datospersonb extends Model
     {
         return $this->belongsTo(\App\Models\User::class, 'user_id', 'id');
     }
-    
+
 }
