@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Datospersona;
 use App\Models\Formcurso;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -21,8 +22,9 @@ class FormcursoController extends Controller
     public function index(Request $request): View
     {
         $formcursos = Formcurso::paginate();
-
-        return view('formcurso.index', compact('formcursos'))
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('formcurso.index', compact('formcursos', 'datospersonas', 'datospersona'))
             ->with('i', ($request->input('page', 1) - 1) * $formcursos->perPage());
     }
 
@@ -32,8 +34,9 @@ class FormcursoController extends Controller
     public function create(): View
     {
         $formcurso = new Formcurso();
-
-        return view('formcurso.create', compact('formcurso'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('formcurso.create', compact('formcurso', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -44,7 +47,7 @@ class FormcursoController extends Controller
         Formcurso::create($request->validated());
 
         return Redirect::route('formcursos.index')
-            ->with('success', 'Formcurso created successfully.');
+            ->with('success', 'Registrado correctamente');
     }
 
     /**
@@ -53,8 +56,9 @@ class FormcursoController extends Controller
     public function show($id): View
     {
         $formcurso = Formcurso::find($id);
-
-        return view('formcurso.show', compact('formcurso'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('formcurso.show', compact('formcurso', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -63,8 +67,9 @@ class FormcursoController extends Controller
     public function edit($id): View
     {
         $formcurso = Formcurso::find($id);
-
-        return view('formcurso.edit', compact('formcurso'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('formcurso.edit', compact('formcurso', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -75,7 +80,7 @@ class FormcursoController extends Controller
         $formcurso->update($request->validated());
 
         return Redirect::route('formcursos.index')
-            ->with('success', 'Formcurso updated successfully');
+            ->with('success', 'Modificado correctamente');
     }
 
     public function destroy($id): RedirectResponse
@@ -83,6 +88,6 @@ class FormcursoController extends Controller
         Formcurso::find($id)->delete();
 
         return Redirect::route('formcursos.index')
-            ->with('success', 'Formcurso deleted successfully');
+            ->with('success', 'Eliminado correctamente');
     }
 }

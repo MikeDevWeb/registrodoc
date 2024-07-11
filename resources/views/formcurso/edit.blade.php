@@ -2,7 +2,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Update') }} Formcurso
+    {{ __('Modificar') }} Formación de Curso/Seminario/Otro
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Formcurso</span>
+                        <span class="card-title">{{ __('Modificar') }} Formación de Curso/Seminario/Otro</span>
                     </div>
                     <div class="card-body bg-white">
                         <form method="POST" action="{{ route('formcursos.update', $formcurso->id) }}"  role="form" enctype="multipart/form-data">

@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
-                        <div class="alert-sm alert-success m-4 text-sm">
+                        <div class="alert-sm alert-success m-4 text-sm rounded">
                             <p>{{ $message }}</p>
                         </div>
                     @endif
@@ -37,7 +37,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th >Docente</th>
-                                            <th >Institucion/Universidad</th>
+                                            <th >Institucion/ Universidad</th>
                                             <th >Anio</th>
                                             <th >Grado Académico</th>
                                             <th >Titulo/Diploma</th>

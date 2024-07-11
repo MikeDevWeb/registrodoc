@@ -8,7 +8,9 @@
                     <option value="">Seleccione...</option>
                     @foreach ($datospersonas as $datospersona)
                         @php
-                            $isRegistered = \App\Models\formpostgrado::where('datospersona_id', $datospersona->id)->exists();
+                            $isRegistered = \App\Models\Formpostgrado::where('datospersona_id', $datospersona->id)
+                                ->where('id', '<>', optional($formpostgrado)->id)
+                                ->exists();
                         @endphp
                         <option value="{{ $datospersona->id }}" {{ $datospersona->id == (old('datospersona_id', $formpostgrado?->datospersona_id) ?: '') ? 'selected' : '' }} {{ $isRegistered ? 'disabled' : '' }}>
                             {{ $datospersona->nombre }} {{ $datospersona->apellidoPaterno }} {{ $datospersona->apellidoMaterno }}

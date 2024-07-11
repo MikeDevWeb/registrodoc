@@ -2,7 +2,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Create') }} Formpostgrado
+    {{ __('Registrar') }} Formación de Postgrado
 @endsection
 
 @section('content')
