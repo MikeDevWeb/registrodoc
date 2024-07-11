@@ -3,7 +3,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Create') }} Contacto
+    {{ __('Registrar') }} Contacto
 @endsection
 
 @section('content')

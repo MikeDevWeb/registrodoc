@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class Formprofesional
  *
  * @property $id
+ * @property $fecharegistro
  * @property $universidad
  * @property $anio
  * @property $gradoacademico
@@ -24,7 +25,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Formprofesional extends Model
 {
-    
+
     protected $perPage = 20;
 
     /**
@@ -32,7 +33,7 @@ class Formprofesional extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['universidad', 'anio', 'gradoacademico', 'titulodiploma', 'datospersona_id', 'user_id'];
+    protected $fillable = ['fecharegistro', 'universidad', 'anio', 'gradoacademico', 'titulodiploma', 'datospersona_id', 'user_id'];
 
 
     /**
@@ -42,7 +43,7 @@ class Formprofesional extends Model
     {
         return $this->belongsTo(\App\Models\Datospersona::class, 'datospersona_id', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -50,5 +51,5 @@ class Formprofesional extends Model
     {
         return $this->belongsTo(\App\Models\User::class, 'user_id', 'id');
     }
-    
+
 }

@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
-                        <div class="alert alert-success m-4">
+                        <div class="alert-sm alert-success m-4">
                             <p>{{ $message }}</p>
                         </div>
                     @endif
@@ -35,7 +35,7 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
+                                        <th>#</th>
 
 									<th >Nombrearticulo</th>
 									<th >Anio</th>

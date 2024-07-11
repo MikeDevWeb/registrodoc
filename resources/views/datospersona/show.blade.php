@@ -70,7 +70,7 @@
                             </div>
                             <div class="form-group mb-2 col-md-12 mb20">
                                 <strong>Registrado por:</strong>
-                                <input  class="col-md-4 form-control" type="text" value="{{ $datospersona->user->name }}" readonly>
+                                {{ $datospersona->user->name }}
                                 <p hidden>{{ $datospersona->user_id }}</p>
                             </div>
                             <div class="form-group mb-2 col-md-4 mb20">
@@ -90,8 +90,40 @@
         $(document).ready(function() {
             $("#btn-imprimir").click(function()
             {
+                var printContents = document.getElementById("contenido-para-imprimir").innerHTML;
+                var originalContents = document.body.innerHTML;
+
+                document.body.innerHTML = printContents;
+
                 window.print();
+
+                document.body.innerHTML = originalContents;
+
+                history.pushState({}, null, '');
             });
         });
+
+        @push('css')
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                line-height: 22px;
+                margin: 0;
+                padding: 0;
+                background-color: #f5f5f5;
+            }
+            #contenido-para-imprimir {
+                padding: 30px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+            }
+            #contenido-para-imprimir p {
+                margin-bottom: 10px;
+            }
+            #contenido-para-imprimir strong {
+                font-weight: bold;
+            }
+        </style>
+        @endpush
     </script>
 @endsection

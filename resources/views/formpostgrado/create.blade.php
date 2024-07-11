@@ -12,7 +12,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Create') }} Formpostgrado</span>
+                        <span class="card-title">{{ __('Registrar') }} Formación de Postgrado</span>
                     </div>
                     <div class="card-body bg-white">
                         <form method="POST" action="{{ route('formpostgrados.store') }}"  role="form" enctype="multipart/form-data">

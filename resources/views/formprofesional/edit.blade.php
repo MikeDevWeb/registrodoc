@@ -2,7 +2,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Update') }} Formprofesional
+    {{ __('Modificar') }} Formación profesional
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Formprofesional</span>
+                        <span class="card-title">{{ __('Modificar') }} Formación profesional</span>
                     </div>
                     <div class="card-body bg-white">
                         <form method="POST" action="{{ route('formprofesionals.update', $formprofesional->id) }}"  role="form" enctype="multipart/form-data">

@@ -26,6 +26,7 @@ class FormprofesionalRequest extends FormRequest
 			'anio' => 'required|string',
 			'gradoacademico' => 'required',
 			'titulodiploma' => 'required|string',
+            'fecharegistro' => 'required|date',
 			'datospersona_id' => 'required',
 			'user_id' => 'required',
         ];

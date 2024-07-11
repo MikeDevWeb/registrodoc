@@ -8,10 +8,12 @@ use App\Models\Datospersona;
  * Class Datospersonb
  *
  * @property $id
- * @property $direccion
- * @property $telefono
- * @property $celular
- * @property $correo
+ *
+//  * @property $direccion
+//  * @property $telefono
+//  * @property $celular
+//  * @property $correo
+//  *
  * @property $idiomaNativo
  * @property $nivelidiomaescritura
  * @property $nivelidiomalectura
@@ -39,7 +41,7 @@ class Datospersonb extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['direccion', 'telefono', 'celular', 'correo', 'idiomaNativo', 'nivelidiomaescritura', 'nivelidiomalectura', 'nivelidiomahabla', 'idiomaSecundario', 'nivelidiomaSecundarioescritura', 'nivelidiomaSecundariolectura', 'nivelidiomaSecundariohabla', 'datospersona_id', 'user_id'];
+    protected $fillable = ['idiomaNativo', 'nivelidiomaescritura', 'nivelidiomalectura', 'nivelidiomahabla', 'idiomaSecundario', 'nivelidiomaSecundarioescritura', 'nivelidiomaSecundariolectura', 'nivelidiomaSecundariohabla', 'fecharegistro', 'datospersona_id', 'user_id'];
 
 
     /**

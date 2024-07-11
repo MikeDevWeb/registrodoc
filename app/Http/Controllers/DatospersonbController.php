@@ -48,7 +48,7 @@ class DatospersonbController extends Controller
         Datospersonb::create($request->validated());
 
         return Redirect::route('datospersonbs.index')
-            ->with('Genial!', 'Se ha creado correctamente.');
+            ->with('Genial!', 'Registrado correctamente.');
     }
 
     /**
@@ -80,7 +80,7 @@ class DatospersonbController extends Controller
         $datospersonb->update($request->validated());
 
         return Redirect::route('datospersonbs.index')
-            ->with('success', 'Datospersonb updated successfully');
+            ->with('success', 'Modificado correctamente');
     }
 
     public function destroy($id): RedirectResponse
@@ -88,6 +88,6 @@ class DatospersonbController extends Controller
         Datospersonb::find($id)->delete();
 
         return Redirect::route('datospersonbs.index')
-            ->with('success', 'Datospersonb deleted successfully');
+            ->with('success', 'Eliminado correctamente');
     }
 }

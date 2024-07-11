@@ -22,10 +22,6 @@ class DatospersonbRequest extends FormRequest
     public function rules(): array
     {
         return [
-			'direccion' => 'required|string',
-			'telefono' => 'required|string',
-			'celular' => 'required|string',
-			'correo' => 'required|string',
 			'idiomaNativo' => 'required',
 			'nivelidiomaescritura' => 'required',
 			'nivelidiomalectura' => 'required',
@@ -34,6 +30,7 @@ class DatospersonbRequest extends FormRequest
 			'nivelidiomaSecundarioescritura' => 'required',
 			'nivelidiomaSecundariolectura' => 'required',
 			'nivelidiomaSecundariohabla' => 'required',
+            'fecharegistro' => 'required',
 			'datospersona_id' => 'required',
 			'user_id' => 'required',
         ];

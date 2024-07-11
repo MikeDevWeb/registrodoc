@@ -2,7 +2,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ $formpostgrado->name ?? __('Show') . " " . __('Formpostgrado') }}
+    {{ $formpostgrado->name ?? __('Revisar') . " " . __('Formación de Postgrado') }}
 @endsection
 
 @section('content')
@@ -12,40 +12,37 @@
                 <div class="card">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Formpostgrado</span>
-                        </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary btn-sm" href="{{ route('formpostgrados.index') }}"> {{ __('Back') }}</a>
+                            <span class="card-title">{{ __('Revisar') }} Formación de Postgrado</span>
                         </div>
                     </div>
-
                     <div class="card-body bg-white">
-
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Institucionuniversidad:</strong>
-                                    {{ $formpostgrado->institucionUniversidad }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Anio:</strong>
-                                    {{ $formpostgrado->anio }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Gradoacademico:</strong>
-                                    {{ $formpostgrado->gradoacademico }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Titulodiploma:</strong>
-                                    {{ $formpostgrado->titulodiploma }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Datospersona Id:</strong>
-                                    {{ $formpostgrado->datospersona_id }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>User Id:</strong>
-                                    {{ $formpostgrado->user_id }}
-                                </div>
-
+                        <div class="form-group mb-2 mb20">
+                            <strong>Docente:</strong>
+                            {{ $formpostgrado->datospersona->nombre }} {{ $formpostgrado->datospersona->apellidoPaterno }} {{ $formpostgrado->datospersona->apellidoMaterno }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Institucionuniversidad:</strong>
+                            {{ $formpostgrado->institucionUniversidad }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Anio:</strong>
+                            {{ $formpostgrado->anio }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Gradoacademico:</strong>
+                            {{ $formpostgrado->gradoacademico }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Titulodiploma:</strong>
+                            {{ $formpostgrado->titulodiploma }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>User Id:</strong>
+                            {{ $formpostgrado->user->name }}
+                        </div>
+                        <div class="float-left">
+                            <a class="btn-primary btn-sm" href="{{ route('formpostgrados.index') }}"> {{ __('Volver') }}</a>
+                        </div>
                     </div>
                 </div>
             </div>

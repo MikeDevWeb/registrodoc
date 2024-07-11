@@ -1,8 +1,7 @@
-<link rel="icon" href="{{ asset('vendor/adminlte/dist/img/ICONO_esam.png') }}" type="image/png" sizes="16x16">
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Update') }} Formpostgrado
+    {{ __('Modificar') }} Formación de Postgrado
 @endsection
 
 @section('content')
@@ -12,7 +11,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Formpostgrado</span>
+                        <span class="card-title">{{ __('Modificar') }} Formación de Postgrado</span>
                     </div>
                     <div class="card-body bg-white">
                         <form method="POST" action="{{ route('formpostgrados.update', $formpostgrado->id) }}"  role="form" enctype="multipart/form-data">
@@ -27,4 +26,7 @@
             </div>
         </div>
     </section>
+@endsection
+@section('css')
+<link rel="icon" href="{{ asset('vendor/adminlte/dist/img/ICONO_esam.png') }}" type="image/png" sizes="16x16">
 @endsection

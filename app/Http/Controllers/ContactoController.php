@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contacto;
+use App\Models\Datospersona;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactoRequest;
@@ -21,8 +22,9 @@ class ContactoController extends Controller
     public function index(Request $request): View
     {
         $contactos = Contacto::paginate();
-
-        return view('contacto.index', compact('contactos'))
+        $datospersona = Datospersona::all();
+        $datospersonas = $datospersona;
+        return view('contacto.index', compact('contactos', 'datospersonas', 'datospersona'))
             ->with('i', ($request->input('page', 1) - 1) * $contactos->perPage());
     }
 
@@ -32,8 +34,9 @@ class ContactoController extends Controller
     public function create(): View
     {
         $contacto = new Contacto();
-
-        return view('contacto.create', compact('contacto'));
+        $datospersona = Datospersona::all();
+        $datospersonas = $datospersona;
+        return view('contacto.create', compact('contacto', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -44,7 +47,7 @@ class ContactoController extends Controller
         Contacto::create($request->validated());
 
         return Redirect::route('contactos.index')
-            ->with('success', 'Contacto created successfully.');
+            ->with('success', 'Registrado correctamente.');
     }
 
     /**
@@ -53,8 +56,9 @@ class ContactoController extends Controller
     public function show($id): View
     {
         $contacto = Contacto::find($id);
-
-        return view('contacto.show', compact('contacto'));
+        $datospersona = Datospersona::all();
+        $datospersonas = $datospersona;
+        return view('contacto.show', compact('contacto', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -63,8 +67,9 @@ class ContactoController extends Controller
     public function edit($id): View
     {
         $contacto = Contacto::find($id);
-
-        return view('contacto.edit', compact('contacto'));
+        $datospersona = Datospersona::all();
+        $datospersonas = $datospersona;
+        return view('contacto.edit', compact('contacto', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -75,7 +80,7 @@ class ContactoController extends Controller
         $contacto->update($request->validated());
 
         return Redirect::route('contactos.index')
-            ->with('success', 'Contacto updated successfully');
+            ->with('success', 'Modificado correctamente');
     }
 
     public function destroy($id): RedirectResponse
@@ -83,6 +88,6 @@ class ContactoController extends Controller
         Contacto::find($id)->delete();
 
         return Redirect::route('contactos.index')
-            ->with('success', 'Contacto deleted successfully');
+            ->with('success', 'Eliminado correctamente');
     }
 }

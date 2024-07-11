@@ -14,10 +14,6 @@ return new class extends Migration
         Schema::create('datospersonbs', function (Blueprint $table) {
             $table->id();
 
-            $table->string('direccion', 50) ->pattern('/^[a-zA-Z\s]+') ->required;
-            $table->string('telefono',9) ->pattern('/^[0-9]+/') ->required;
-            $table->string('celular',9) ->regex('/^(7|6)[0-9]{8}/')->required;
-            $table->string('correo', 25)->required()->unique()->format('email');
             $table->enum('idiomaNativo', ['Español', 'Inglés', 'Portugués', 'Frances', 'Italiano', 'Chino', 'Japones', 'Coreano', 'Aleman', 'Ruso', 'Quechua', 'Aymara', 'Guarani', 'Otros']) ->required;
             $table->enum('nivelidiomaescritura', ['Bajo', 'Medio', 'Alto'])->required;
             $table->enum('nivelidiomalectura', ['Bajo', 'Medio', 'Alto'])->required;

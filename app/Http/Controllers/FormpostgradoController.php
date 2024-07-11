@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Datospersona;
 use App\Models\Formpostgrado;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -21,8 +22,9 @@ class FormpostgradoController extends Controller
     public function index(Request $request): View
     {
         $formpostgrados = Formpostgrado::paginate();
-
-        return view('formpostgrado.index', compact('formpostgrados'))
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('formpostgrado.index', compact('formpostgrados', 'datospersonas', 'datospersona'))
             ->with('i', ($request->input('page', 1) - 1) * $formpostgrados->perPage());
     }
 
@@ -32,8 +34,9 @@ class FormpostgradoController extends Controller
     public function create(): View
     {
         $formpostgrado = new Formpostgrado();
-
-        return view('formpostgrado.create', compact('formpostgrado'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('formpostgrado.create', compact('formpostgrado', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -44,7 +47,7 @@ class FormpostgradoController extends Controller
         Formpostgrado::create($request->validated());
 
         return Redirect::route('formpostgrados.index')
-            ->with('success', 'Formpostgrado created successfully.');
+            ->with('success', 'Registrado correctamente.');
     }
 
     /**
@@ -53,8 +56,9 @@ class FormpostgradoController extends Controller
     public function show($id): View
     {
         $formpostgrado = Formpostgrado::find($id);
-
-        return view('formpostgrado.show', compact('formpostgrado'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('formpostgrado.show', compact('formpostgrado', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -63,8 +67,9 @@ class FormpostgradoController extends Controller
     public function edit($id): View
     {
         $formpostgrado = Formpostgrado::find($id);
-
-        return view('formpostgrado.edit', compact('formpostgrado'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('formpostgrado.edit', compact('formpostgrado', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -75,7 +80,7 @@ class FormpostgradoController extends Controller
         $formpostgrado->update($request->validated());
 
         return Redirect::route('formpostgrados.index')
-            ->with('success', 'Formpostgrado updated successfully');
+            ->with('success', 'Modificado correctamente');
     }
 
     public function destroy($id): RedirectResponse
@@ -83,6 +88,6 @@ class FormpostgradoController extends Controller
         Formpostgrado::find($id)->delete();
 
         return Redirect::route('formpostgrados.index')
-            ->with('success', 'Formpostgrado deleted successfully');
+            ->with('success', 'Eliminado correctamente');
     }
 }
