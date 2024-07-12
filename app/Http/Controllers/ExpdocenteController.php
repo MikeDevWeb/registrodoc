@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Datospersona;
 use App\Models\Expdocente;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -21,8 +22,9 @@ class ExpdocenteController extends Controller
     public function index(Request $request): View
     {
         $expdocentes = Expdocente::paginate();
-
-        return view('expdocente.index', compact('expdocentes'))
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('expdocente.index', compact('expdocentes', 'datospersonas', 'datospersona'))
             ->with('i', ($request->input('page', 1) - 1) * $expdocentes->perPage());
     }
 
@@ -32,8 +34,9 @@ class ExpdocenteController extends Controller
     public function create(): View
     {
         $expdocente = new Expdocente();
-
-        return view('expdocente.create', compact('expdocente'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('expdocente.create', compact('expdocente', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -44,7 +47,7 @@ class ExpdocenteController extends Controller
         Expdocente::create($request->validated());
 
         return Redirect::route('expdocentes.index')
-            ->with('success', 'Expdocente created successfully.');
+            ->with('success', 'Registrado correctamente.');
     }
 
     /**
@@ -53,8 +56,9 @@ class ExpdocenteController extends Controller
     public function show($id): View
     {
         $expdocente = Expdocente::find($id);
-
-        return view('expdocente.show', compact('expdocente'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('expdocente.show', compact('expdocente', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -63,8 +67,9 @@ class ExpdocenteController extends Controller
     public function edit($id): View
     {
         $expdocente = Expdocente::find($id);
-
-        return view('expdocente.edit', compact('expdocente'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('expdocente.edit', compact('expdocente', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -75,7 +80,7 @@ class ExpdocenteController extends Controller
         $expdocente->update($request->validated());
 
         return Redirect::route('expdocentes.index')
-            ->with('success', 'Expdocente updated successfully');
+            ->with('success', 'Modificado correctamente');
     }
 
     public function destroy($id): RedirectResponse
@@ -83,6 +88,6 @@ class ExpdocenteController extends Controller
         Expdocente::find($id)->delete();
 
         return Redirect::route('expdocentes.index')
-            ->with('success', 'Expdocente deleted successfully');
+            ->with('success', 'Eliminado correctamente');
     }
 }

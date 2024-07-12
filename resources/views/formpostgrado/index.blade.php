@@ -25,8 +25,8 @@
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
-                        <div class="alert-sm alert-success m-4 text-sm rounded">
-                            <p>{{ $message }}</p>
+                    <div class="text-center mx-auto alert-sm alert-success col-md-4 rounded">
+                        <p>{{ $message }}</p>
                         </div>
                     @endif
                     <div id="tablita_wrapper">
@@ -41,6 +41,7 @@
                                             <th >Anio</th>
                                             <th >Grado Académico</th>
                                             <th >Titulo/Diploma</th>
+                                            <th >Registrado</th>
                                             <th >Registrado por</th>
                                             <th></th>
                                         </tr>
@@ -54,6 +55,7 @@
                                                 <td >{{ $formpostgrado->anio }}</td>
                                                 <td >{{ $formpostgrado->gradoacademico }}</td>
                                                 <td >{{ $formpostgrado->titulodiploma }}</td>
+                                                <td >{{ $formpostgrado->fecharegistro }}</td>
                                                 <td >{{ $formpostgrado->user->name }}</td>
                                                 <td>
                                                     <form action="{{ route('formpostgrados.destroy', $formpostgrado->id) }}" method="POST">

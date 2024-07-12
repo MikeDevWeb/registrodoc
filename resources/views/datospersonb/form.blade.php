@@ -89,7 +89,8 @@
             <div class="form-group col-md-4 text-sm">
                 <div class="form-group mb-2 mb20 text-sm">
                     <label for="idiomaSecundario" class="form-label text-sm">{{ __('Idioma Secundario') }}</label>
-                    <select class="form-control text-sm @error('idiomaSecundario') is-invalid @enderror" name="idiomaSecundario" id="idiomaSecundario" required>
+                    <select class="form-control text-sm @error('idiomaSecundario') is-invalid @enderror" name="idiomaSecundario" id="idiomaSecundario">
+                        <option value="Ninguno" {{ old('idiomaSecundario', $datospersona?->idiomaSecundario) == 'Ninguno' ? 'selected' : '' }}>Ninguno</option>
                         <option value="Inglés" {{ old('idiomaSecundario', $datospersona?->idiomaSecundario) == 'Inglés' ? 'selected' : '' }}>Inglés</option>
                         <option value="Español" {{ old('idiomaSecundario', $datospersona?->idiomaSecundario) == 'Español' ? 'selected' : '' }}>Español</option>
                         <option value="Portugués" {{ old('idiomaSecundario', $datospersona?->idiomaSecundario) == 'Portugués' ? 'selected' : '' }}>Portugués</option>

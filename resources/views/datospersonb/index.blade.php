@@ -27,9 +27,9 @@
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
-                        <div class="alert-sm alert-success m-4">
-                            <p>{{ $message }}</p>
-                        </div>
+                    <div class="text-center mx-auto alert-sm alert-success col-md-4 rounded">
+                        <p>{{ $message }}</p>
+                    </div>
                     @endif
                     <div id="tablita_wrapper">
                         <div class="card-body bg-white text-sm">
@@ -38,6 +38,7 @@
                                     <thead class="thead">
                                         <tr>
                                             <th>No</th>
+                                            <th >Docente </th>
                                         <th >Idioma Nativo</th>
                                         <th >Escritura</th>
                                         <th >Lectura</th>
@@ -46,7 +47,6 @@
                                         <th >Escritura</th>
                                         <th >Lectura</th>
                                         <th >Habla</th>
-                                        <th >Docente </th>
                                         <th >Registrado por</th>
                                         <th >Registrado</th>
                                             <th></th>
@@ -56,6 +56,7 @@
                                         @foreach ($datospersonbs as $datospersonb)
                                             <tr>
                                                 <td>{{ ++$i }}</td>
+                                                <td >{{ $datospersonb->datospersona->nombre }} {{ $datospersonb->datospersona->apellidoPaterno }} {{ $datospersonb->datospersona->apellidoMaterno }}</td>
 
                                             <td >{{ $datospersonb->idiomaNativo }}</td>
                                             <td >{{ $datospersonb->nivelidiomaescritura }}</td>
@@ -65,7 +66,6 @@
                                             <td >{{ $datospersonb->nivelidiomaSecundarioescritura }}</td>
                                             <td >{{ $datospersonb->nivelidiomaSecundariolectura }}</td>
                                             <td >{{ $datospersonb->nivelidiomaSecundariohabla }}</td>
-                                            <td >{{ $datospersonb->datospersona->nombre }} {{ $datospersonb->datospersona->apellidoPaterno }} {{ $datospersonb->datospersona->apellidoMaterno }}</td>
                                             {{-- <td hidden>{{ $datospersonb->datospersona->user_id }}</td> --}}
                                             <td><p>{{ $datospersonb->datospersona->user->name }}</p></td>
                                             <td>{{ $datospersonb->fecharegistro }}</td>

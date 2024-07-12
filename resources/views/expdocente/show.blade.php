@@ -14,9 +14,7 @@
                         <div class="float-left">
                             <span class="card-title">{{ __('Revisar') }} Experiencia en docencia</span>
                         </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary btn-sm" href="{{ route('expdocentes.index') }}"> {{ __('Volver') }}</a>
-                        </div>
+
                     </div>
 
                     <div class="card-body bg-white text-sm">
@@ -49,7 +47,9 @@
                             <strong>Registrado por:</strong>
                             {{ $expdocente->user->name }}
                         </div>
-
+                        <div class="float-left">
+                            <a class="btn btn-primary btn-sm" href="{{ route('expdocentes.index') }}"> {{ __('Volver') }}</a>
+                        </div>
                     </div>
                 </div>
             </div>

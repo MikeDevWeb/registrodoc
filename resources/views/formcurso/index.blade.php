@@ -25,8 +25,8 @@
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
-                        <div class="alert-sm alert-success m-4 rounded">
-                            <p>{{ $message }}</p>
+                    <div class="text-center mx-auto alert-sm alert-success col-md-4 rounded">
+                        <p>{{ $message }}</p>
                         </div>
                     @endif
                     <div id="tablita_wrapper">

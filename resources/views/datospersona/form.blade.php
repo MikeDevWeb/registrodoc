@@ -68,7 +68,7 @@
                 </div>
                 <div class="form-group mb-2 mb20 text-sm">
                     <label for="edad" class="form-label text-sm">{{ __('Edad') }}</label>
-                    <input type="number" name="edad" class="form-control text-sm @error('edad') is-invalid @enderror" value="{{ old('edad', $datospersona?->edad) }}" id="edad" min="25" max="80">
+                    <input type="number" name="edad" class="form-control text-sm @error('edad') is-invalid @enderror" value="{{ old('edad', $datospersona?->edad) }}" id="edad" min="25" max="80" maxlength="2" oninput="this.value = this.value.slice(0, this.maxLength)" pattern="[0-9]{0,2}">
                     {!! $errors->first('edad', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
                 </div>
             </div>

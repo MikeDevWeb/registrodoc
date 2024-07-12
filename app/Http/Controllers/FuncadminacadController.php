@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Datospersona;
 use App\Models\Funcadminacad;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -21,8 +22,9 @@ class FuncadminacadController extends Controller
     public function index(Request $request): View
     {
         $funcadminacads = Funcadminacad::paginate();
-
-        return view('funcadminacad.index', compact('funcadminacads'))
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('funcadminacad.index', compact('funcadminacads', 'datospersonas', 'datospersona'))
             ->with('i', ($request->input('page', 1) - 1) * $funcadminacads->perPage());
     }
 
@@ -32,8 +34,9 @@ class FuncadminacadController extends Controller
     public function create(): View
     {
         $funcadminacad = new Funcadminacad();
-
-        return view('funcadminacad.create', compact('funcadminacad'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('funcadminacad.create', compact('funcadminacad', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -44,7 +47,7 @@ class FuncadminacadController extends Controller
         Funcadminacad::create($request->validated());
 
         return Redirect::route('funcadminacads.index')
-            ->with('success', 'Funcadminacad created successfully.');
+            ->with('success', 'Registrado correctamente.');
     }
 
     /**
@@ -53,8 +56,9 @@ class FuncadminacadController extends Controller
     public function show($id): View
     {
         $funcadminacad = Funcadminacad::find($id);
-
-        return view('funcadminacad.show', compact('funcadminacad'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('funcadminacad.show', compact('funcadminacad', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -63,8 +67,9 @@ class FuncadminacadController extends Controller
     public function edit($id): View
     {
         $funcadminacad = Funcadminacad::find($id);
-
-        return view('funcadminacad.edit', compact('funcadminacad'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('funcadminacad.edit', compact('funcadminacad', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -75,7 +80,7 @@ class FuncadminacadController extends Controller
         $funcadminacad->update($request->validated());
 
         return Redirect::route('funcadminacads.index')
-            ->with('success', 'Funcadminacad updated successfully');
+            ->with('success', 'Modificado correctamente');
     }
 
     public function destroy($id): RedirectResponse
@@ -83,6 +88,6 @@ class FuncadminacadController extends Controller
         Funcadminacad::find($id)->delete();
 
         return Redirect::route('funcadminacads.index')
-            ->with('success', 'Funcadminacad deleted successfully');
+            ->with('success', 'Eliminado correctamente');
     }
 }

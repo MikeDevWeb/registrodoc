@@ -21,7 +21,7 @@
             </div>
             <div class="form-group mb-2 mb20 text-sm">
                 <label for="institucion" class="form-label text-sm">{{ __('Institucion') }}</label>
-                <input type="text" name="institucion" class="form-control text-sm @error('institucion') is-invalid @enderror" value="{{ old('institucion', $formcurso?->institucion) }}" id="institucion" placeholder="Institucion">
+                <input type="text" name="institucion" class="form-control text-sm @error('institucion') is-invalid @enderror" value="{{ old('institucion', $formcurso?->institucion) }}" id="institucion">
                 {!! $errors->first('institucion', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
             </div>
             <div class="form-group mb-2 mb20 text-sm">
@@ -31,7 +31,7 @@
             </div>
             <div class="form-group mb-2 mb20 text-sm">
                 <label for="nombreevento" class="form-label text-sm">{{ __('Nombre de Evento') }}</label>
-                <input type="text" name="nombreevento" class="form-control text-sm @error('nombreevento') is-invalid @enderror" value="{{ old('nombreevento', $formcurso?->nombreevento) }}" id="nombreevento" placeholder="Nombreevento">
+                <input type="text" name="nombreevento" class="form-control text-sm @error('nombreevento') is-invalid @enderror" value="{{ old('nombreevento', $formcurso?->nombreevento) }}" id="nombreevento">
                 {!! $errors->first('nombreevento', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
             </div>
 
@@ -39,17 +39,17 @@
         <div class="col-md-6">
             <div class="form-group mb-2 mb20 text-sm">
                 <label for="fechainicio" class="form-label text-sm">{{ __('Fecha inicio') }}</label>
-                <input type="date" name="fechainicio" class="form-control text-sm @error('fechainicio') is-invalid @enderror" value="{{ old('fechainicio', $formcurso?->fechainicio) }}" id="fechainicio" placeholder="Fechainicio">
+                <input type="date" name="fechainicio" class="form-control text-sm @error('fechainicio') is-invalid @enderror" value="{{ old('fechainicio', $formcurso?->fechainicio) }}" id="fechainicio">
                 {!! $errors->first('fechainicio', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
             </div>
             <div class="form-group mb-2 mb20 text-sm">
                 <label for="fechafin" class="form-label text-sm">{{ __('Fecha fin') }}</label>
-                <input type="date" name="fechafin" class="form-control text-sm @error('fechafin') is-invalid @enderror" value="{{ old('fechafin', $formcurso?->fechafin) }}" id="fechafin" placeholder="Fechafin">
+                <input type="date" name="fechafin" class="form-control text-sm @error('fechafin') is-invalid @enderror" value="{{ old('fechafin', $formcurso?->fechafin) }}" id="fechafin" min="{{ $formcurso?->fechainicio ?? '' }}" required>
                 {!! $errors->first('fechafin', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
             </div>
             <div class="form-group mb-2 mb20 text-sm">
                 <label for="duracion" class="form-label text-sm">{{ __('Duración') }}</label>
-                <input type="text" name="duracion" class="form-control text-sm @error('duracion') is-invalid @enderror" value="{{ old('duracion', $formcurso?->duracion) }}" id="duracion" placeholder="Duracion">
+                <input type="text" name="duracion" class="form-control text-sm @error('duracion') is-invalid @enderror" value="{{ old('duracion', $formcurso?->duracion) }}" id="duracion" placeholder="En horas academicas">
                 {!! $errors->first('duracion', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
             </div>
             <div class="form-group mb-2 mb20 text-sm">

@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
-                        <div class="alert-sm alert-success m-4 rounded">
+                        <div class="text-center mx-auto alert-sm alert-success col-md-4 rounded">
                             <p>{{ $message }}</p>
                         </div>
                     @endif
@@ -43,6 +43,7 @@
                                             <th >Fechafin</th>
                                             <th >Duracion</th>
                                             <th >Registrado por</th>
+                                            <th >Registrado</th>
 
                                             <th></th>
                                         </tr>
@@ -58,15 +59,16 @@
                                                 <td >{{ $expdocente->fechafin }}</td>
                                                 <td >{{ $expdocente->duracion }}</td>
                                                 <td >{{ $expdocente->user->name }}</td>
+                                                <td >{{ $expdocente->fecharegistro }}</td>
 
                                                 <td>
                                                     <form action="{{ route('expdocentes.destroy', $expdocente->id) }}" method="POST">
                                                         <div class="btn-group">
-                                                            <a class="btn btn-sm btn-primary " href="{{ route('expdocentes.show', $expdocente->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Revisar') }}</a>
-                                                        <a class="btn btn-sm btn-success" href="{{ route('expdocentes.edit', $expdocente->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Modificar') }}</a>
+                                                            <a class="btn-xs btn-sm btn-primary text-center" href="{{ route('expdocentes.show', $expdocente->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Revisar') }}</a>
+                                                        <a class="btn-xs btn-success text-center" href="{{ route('expdocentes.edit', $expdocente->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Modificar') }}</a>
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('Confirma eliminar el registro?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
+                                                        <button type="submit" class="btn-xs btn-danger btn-sm" onclick="event.preventDefault(); confirm('Confirma eliminar el registro?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
                                                         </div>
                                                     </form>
                                                 </td>
