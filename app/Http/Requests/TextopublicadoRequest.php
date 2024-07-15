@@ -26,6 +26,7 @@ class TextopublicadoRequest extends FormRequest
 			'anio' => 'required|string',
 			'autor' => 'required|string',
 			'coautor' => 'required|string',
+            'fecharegistro' => 'required|date',
 			'datospersona_id' => 'required',
 			'user_id' => 'required',
         ];

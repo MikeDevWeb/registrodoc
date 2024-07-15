@@ -27,6 +27,7 @@ class FormpostgradoRequest extends FormRequest
 			'gradoacademico' => 'required',
 			'titulodiploma' => 'required|string',
 			'datospersona_id' => 'required',
+            'fecharegistro' => 'required|date',
 			'user_id' => 'required',
         ];
     }

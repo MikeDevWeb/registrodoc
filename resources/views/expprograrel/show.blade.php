@@ -2,7 +2,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ $expprograrel->name ?? __('Show') . " " . __('Expprograrel') }}
+    {{ $expprograrel->name ?? __('Revisar') . " " . __('Experiencia en programas relacionados') }}
 @endsection
 
 @section('content')
@@ -12,45 +12,41 @@
                 <div class="card">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Expprograrel</span>
-                        </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary btn-sm" href="{{ route('expprograrels.index') }}"> {{ __('Back') }}</a>
+                            <span class="card-title">{{ __('Revisar') }} Experiencia en programas relacionados</span>
                         </div>
                     </div>
-
                     <div class="card-body bg-white">
-
+                        <div class="form-group mb-2 mb20">
+                            <strong>Docente:</strong>
+                            {{ $expprograrel->datospersona->nombre }} {{ $expprograrel->datospersona->apellidoPaterno }} {{ $expprograrel->datospersona->apellidoMaterno }}
+                        </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Institucion:</strong>
+                                    <strong>Institución:</strong>
                                     {{ $expprograrel->institucion }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Cargoactividad:</strong>
+                                    <strong>Cargo o actividad:</strong>
                                     {{ $expprograrel->cargoactividad }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Fechainicio:</strong>
+                                    <strong>Fecha inicio:</strong>
                                     {{ $expprograrel->fechainicio }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Fechafin:</strong>
+                                    <strong>Fecha fin:</strong>
                                     {{ $expprograrel->fechafin }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Duracion:</strong>
+                                    <strong>Duración:</strong>
                                     {{ $expprograrel->duracion }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Datospersona Id:</strong>
-                                    {{ $expprograrel->datospersona_id }}
+                                    <strong>Registrado por:</strong>
+                                    {{ $expprograrel->user->name }}
                                 </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>User Id:</strong>
-                                    {{ $expprograrel->user_id }}
-                                </div>
-
                     </div>
+                </div><div class="float-left">
+                    <a class="btn btn-primary btn-sm" href="{{ route('expprograrels.index') }}"> {{ __('Volver') }}</a>
                 </div>
             </div>
         </div>

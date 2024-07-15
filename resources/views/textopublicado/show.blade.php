@@ -2,7 +2,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ $textopublicado->name ?? __('Show') . " " . __('Textopublicado') }}
+    {{ $textopublicado->name ?? __('Revisar') . " " . __('Textos Publicados') }}
 @endsection
 
 @section('content')
@@ -12,41 +12,45 @@
                 <div class="card">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Textopublicado</span>
+                            <span class="card-title">{{ __('Revisar') }} Textos Publicados</span>
                         </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary btn-sm" href="{{ route('textopublicados.index') }}"> {{ __('Back') }}</a>
-                        </div>
+
                     </div>
 
                     <div class="card-body bg-white">
 
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Titulo:</strong>
-                                    {{ $textopublicado->titulo }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Anio:</strong>
-                                    {{ $textopublicado->anio }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Autor:</strong>
-                                    {{ $textopublicado->autor }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Coautor:</strong>
-                                    {{ $textopublicado->coautor }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Datospersona Id:</strong>
-                                    {{ $textopublicado->datospersona_id }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>User Id:</strong>
-                                    {{ $textopublicado->user_id }}
-                                </div>
-
+                        <div class="form-group mb-2 mb20">
+                            <strong>Docente:</strong>
+                            {{ $textopublicado->datospersona->nombre }} {{ $textopublicado->datospersona->apellidoPaterno }} {{ $textopublicado->datospersona->apellidoMaterno }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Título:</strong>
+                            {{ $textopublicado->titulo }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Año:</strong>
+                            {{ $textopublicado->anio }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Autor:</strong>
+                            {{ $textopublicado->autor }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Coautor:</strong>
+                            {{ $textopublicado->coautor }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Registrado por:</strong>
+                            {{ $textopublicado->user->name }}
+                        </div>
+                        <div class="form-group mb-2 mb20"></div>
+                            <strong>Registrado:</strong>
+                            {{ $textopublicado->fecharegistro }}
+                        </div>
                     </div>
+                </div>
+                <div class="float-right">
+                    <a class="btn btn-primary btn-sm" href="{{ route('textopublicados.index') }}"> {{ __('Volver') }}</a>
                 </div>
             </div>
         </div>

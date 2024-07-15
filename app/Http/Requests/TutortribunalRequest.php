@@ -26,6 +26,7 @@ class TutortribunalRequest extends FormRequest
 			'pregradopostgrado' => 'required',
 			'nivelprograma' => 'required|string',
 			'tutorevalutribu' => 'required',
+            'fecharegistro' => 'required|date',
 			'tituloinvestigacion' => 'required|string',
 			'datospersona_id' => 'required',
 			'user_id' => 'required',

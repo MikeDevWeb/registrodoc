@@ -14,7 +14,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Formprofesionals') }}
+                                {{ __('Formación Profesional') }}
                             </span>
 
                              <div class="float-right">
@@ -42,8 +42,8 @@
                                         <th >Año</th>
                                         <th >Grado Académico</th>
                                         <th >Titulo/diploma</th>
-                                        <th >Registrado</th>
                                         <th >Registrado por</th>
+                                        <th >Registrado</th>
 
                                             <th></th>
                                         </tr>
@@ -58,8 +58,8 @@
                                             <td >{{ $formprofesional->anio }}</td>
                                             <td >{{ $formprofesional->gradoacademico }}</td>
                                             <td >{{ $formprofesional->titulodiploma }}</td>
-                                            <td >{{ $formprofesional->fecharegistro }}</td>
                                             <td >{{ $formprofesional->user->name }}</td>
+                                            <td >{{ $formprofesional->fecharegistro }}</td>
 
                                                 <td>
                                                     <form class="" action="{{ route('formprofesionals.destroy', $formprofesional->id) }}" method="POST">

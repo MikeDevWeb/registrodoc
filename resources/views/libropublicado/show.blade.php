@@ -2,7 +2,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ $libropublicado->name ?? __('Show') . " " . __('Libropublicado') }}
+    {{ $libropublicado->name ?? __('Revisar') . " " . __('Libros publicados') }}
 @endsection
 
 @section('content')
@@ -12,41 +12,45 @@
                 <div class="card">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Libropublicado</span>
+                            <span class="card-title">{{ __('Revisar') }} Libros publicados</span>
                         </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary btn-sm" href="{{ route('libropublicados.index') }}"> {{ __('Back') }}</a>
-                        </div>
+
                     </div>
 
                     <div class="card-body bg-white">
-
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Titulo:</strong>
-                                    {{ $libropublicado->titulo }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Anio:</strong>
-                                    {{ $libropublicado->anio }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Autor:</strong>
-                                    {{ $libropublicado->autor }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Coautor:</strong>
-                                    {{ $libropublicado->coautor }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Datospersona Id:</strong>
-                                    {{ $libropublicado->datospersona_id }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>User Id:</strong>
-                                    {{ $libropublicado->user_id }}
-                                </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Docente:</strong>
+                            {{ $libropublicado->datospersona->nombre }} {{ $libropublicado->datospersona->apellidoPaterno }} {{ $libropublicado->datospersona->apellidoMaterno }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Título:</strong>
+                            {{ $libropublicado->titulo }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Año:</strong>
+                            {{ $libropublicado->anio }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Autor:</strong>
+                            {{ $libropublicado->autor }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Coautor:</strong>
+                            {{ $libropublicado->coautor }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Registrado:</strong>
+                            {{ $libropublicado->fecharegistro }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Registrado por:</strong>
+                            {{ $libropublicado->user->name }}
+                        </div>
 
                     </div>
+                </div>
+                <div class="float-left">
+                    <a class="btn btn-primary btn-sm" href="{{ route('libropublicados.index') }}"> {{ __('Volver') }}</a>
                 </div>
             </div>
         </div>

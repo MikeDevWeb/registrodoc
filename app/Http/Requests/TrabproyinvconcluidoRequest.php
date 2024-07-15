@@ -25,6 +25,7 @@ class TrabproyinvconcluidoRequest extends FormRequest
 			'trabajoproyecto' => 'required',
 			'fechainicio' => 'required',
 			'fechafin' => 'required',
+            'fecharegistro' => 'required|date',
 			'duracion' => 'required|string',
 			'autor' => 'required|string',
 			'coautor' => 'required|string',

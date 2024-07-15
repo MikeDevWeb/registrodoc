@@ -34,7 +34,7 @@
                     <div id="tablita_wrapper">
                         <div class="card-body bg-white text-sm">
                             <div class="table-responsive text-xs">
-                                <table id="tablita" class="table-sm table-striped table-bordered text-xs">
+                                <table id="tablita" class="table-sm table-striped table-bordered text-xs w-100">
                                     <thead class="thead">
                                         <tr>
                                             <th>No</th>

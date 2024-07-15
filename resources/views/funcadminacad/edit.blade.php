@@ -12,7 +12,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Modificar') }} Función administrativa / academica</span>
+                        <span class="card-title text-sm">{{ __('Modificar') }} Función administrativa / academica</span>
                     </div>
                     <div class="card-body bg-white">
                         <form method="POST" action="{{ route('funcadminacads.update', $funcadminacad->id) }}"  role="form" enctype="multipart/form-data">

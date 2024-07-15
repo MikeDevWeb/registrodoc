@@ -26,6 +26,7 @@ class ExpdocenteRequest extends FormRequest
 			'carrera' => 'required|string',
 			'fechainicio' => 'required',
 			'fechafin' => 'required',
+            'fecharegistro' => 'required|date',
 			'duracion' => 'required|string',
 			'datospersona_id' => 'required',
 			'user_id' => 'required',

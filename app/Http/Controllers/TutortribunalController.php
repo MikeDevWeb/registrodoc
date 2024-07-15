@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Datospersona;
 use App\Models\Tutortribunal;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -21,8 +22,9 @@ class TutortribunalController extends Controller
     public function index(Request $request): View
     {
         $tutortribunals = Tutortribunal::paginate();
-
-        return view('tutortribunal.index', compact('tutortribunals'))
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('tutortribunal.index', compact('tutortribunals', 'datospersonas', 'datospersona'))
             ->with('i', ($request->input('page', 1) - 1) * $tutortribunals->perPage());
     }
 
@@ -32,8 +34,9 @@ class TutortribunalController extends Controller
     public function create(): View
     {
         $tutortribunal = new Tutortribunal();
-
-        return view('tutortribunal.create', compact('tutortribunal'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('tutortribunal.create', compact('tutortribunal', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -44,7 +47,7 @@ class TutortribunalController extends Controller
         Tutortribunal::create($request->validated());
 
         return Redirect::route('tutortribunals.index')
-            ->with('success', 'Tutortribunal created successfully.');
+            ->with('success', 'Registrado correctamente.');
     }
 
     /**
@@ -53,8 +56,9 @@ class TutortribunalController extends Controller
     public function show($id): View
     {
         $tutortribunal = Tutortribunal::find($id);
-
-        return view('tutortribunal.show', compact('tutortribunal'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('tutortribunal.show', compact('tutortribunal', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -63,8 +67,9 @@ class TutortribunalController extends Controller
     public function edit($id): View
     {
         $tutortribunal = Tutortribunal::find($id);
-
-        return view('tutortribunal.edit', compact('tutortribunal'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('tutortribunal.edit', compact('tutortribunal', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -75,7 +80,7 @@ class TutortribunalController extends Controller
         $tutortribunal->update($request->validated());
 
         return Redirect::route('tutortribunals.index')
-            ->with('success', 'Tutortribunal updated successfully');
+            ->with('success', 'Modificado correctamente');
     }
 
     public function destroy($id): RedirectResponse
@@ -83,6 +88,6 @@ class TutortribunalController extends Controller
         Tutortribunal::find($id)->delete();
 
         return Redirect::route('tutortribunals.index')
-            ->with('success', 'Tutortribunal deleted successfully');
+            ->with('success', 'Eliminado correctamente');
     }
 }

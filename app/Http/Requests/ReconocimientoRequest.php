@@ -26,6 +26,7 @@ class ReconocimientoRequest extends FormRequest
 			'institucion' => 'required|string',
 			'anio' => 'required|string',
 			'actividad' => 'required|string',
+            'fecharegistro' => 'required|date',
 			'datospersona_id' => 'required',
 			'user_id' => 'required',
         ];

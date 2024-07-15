@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header text-sm">
                         <div style="display: flex; justify-content: space-between; align-items: left;">
 
                             <span id="card_title">
@@ -32,7 +32,7 @@
                     <div class="tablita_wrapper">
                         <div class="card-body bg-white text-sm">
                             <div class="table-responsive text-xs">
-                                <table id="tablita" class="table-sm table-striped table-hover text-xs">
+                                <table id="tablita" class="table-sm table-striped table-hover text-xs w-100">
                                     <thead class="thead">
                                         <tr>
                                             <th>#</th>
@@ -49,6 +49,7 @@
                                             <th >Telegram</th>
                                             <th >Whatsapp</th>
                                             <th >Registrado por</th>
+                                            <th >Registrado</th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -69,7 +70,7 @@
                                             <td >{{ $contacto->telegram }}</td>
                                             <td >{{ $contacto->whatsapp }}</td>
                                             <td >{{ $contacto->user->name }}</td>
-
+                                            <td >{{ $contacto->fecharegistro }}</td>
                                                 <td>
                                                     <form action="{{ route('contactos.destroy', $contacto->id) }}" method="POST">
                                                         <div class="btn-group text-xs">

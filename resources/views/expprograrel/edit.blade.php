@@ -2,7 +2,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Update') }} Expprograrel
+    {{ __('Modificar') }} Experiencia en programas relacionados
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Expprograrel</span>
+                        <span class="card-title">{{ __('Modificar') }} Experiencia en programas relacionados</span>
                     </div>
                     <div class="card-body bg-white">
                         <form method="POST" action="{{ route('expprograrels.update', $expprograrel->id) }}"  role="form" enctype="multipart/form-data">

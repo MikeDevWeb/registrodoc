@@ -27,6 +27,7 @@ class LibropublicadoRequest extends FormRequest
 			'autor' => 'required|string',
 			'coautor' => 'required|string',
 			'datospersona_id' => 'required',
+            'fecharegistro' => 'required|date',
 			'user_id' => 'required',
         ];
     }

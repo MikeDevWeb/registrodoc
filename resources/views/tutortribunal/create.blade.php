@@ -2,7 +2,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Create') }} Tutortribunal
+    {{ __('REgistrar') }} Experiencia Tutor/tribunal
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Create') }} Tutortribunal</span>
+                        <span class="card-title text-sm">{{ __('Registrar') }} Experiencia Tutor/tribunal</span>
                     </div>
                     <div class="card-body bg-white">
                         <form method="POST" action="{{ route('tutortribunals.store') }}"  role="form" enctype="multipart/form-data">

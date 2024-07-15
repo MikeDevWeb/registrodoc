@@ -2,7 +2,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Update') }} Tutortribunal
+    {{ __('Modificar') }} Experiencia Tutor/tribunal
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Tutortribunal</span>
+                        <span class="card-title text-sm">{{ __('Modificar') }} Experiencia Tutor/tribunal</span>
                     </div>
                     <div class="card-body bg-white">
                         <form method="POST" action="{{ route('tutortribunals.update', $tutortribunal->id) }}"  role="form" enctype="multipart/form-data">

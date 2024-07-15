@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Datospersona;
 use App\Models\Textopublicado;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -21,8 +22,9 @@ class TextopublicadoController extends Controller
     public function index(Request $request): View
     {
         $textopublicados = Textopublicado::paginate();
-
-        return view('textopublicado.index', compact('textopublicados'))
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('textopublicado.index', compact('textopublicados', 'datospersonas', 'datospersona'))
             ->with('i', ($request->input('page', 1) - 1) * $textopublicados->perPage());
     }
 
@@ -32,8 +34,9 @@ class TextopublicadoController extends Controller
     public function create(): View
     {
         $textopublicado = new Textopublicado();
-
-        return view('textopublicado.create', compact('textopublicado'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('textopublicado.create', compact('textopublicado', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -44,7 +47,7 @@ class TextopublicadoController extends Controller
         Textopublicado::create($request->validated());
 
         return Redirect::route('textopublicados.index')
-            ->with('success', 'Textopublicado created successfully.');
+            ->with('success', 'Registrado correctamente.');
     }
 
     /**
@@ -53,8 +56,9 @@ class TextopublicadoController extends Controller
     public function show($id): View
     {
         $textopublicado = Textopublicado::find($id);
-
-        return view('textopublicado.show', compact('textopublicado'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('textopublicado.show', compact('textopublicado', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -63,8 +67,9 @@ class TextopublicadoController extends Controller
     public function edit($id): View
     {
         $textopublicado = Textopublicado::find($id);
-
-        return view('textopublicado.edit', compact('textopublicado'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('textopublicado.edit', compact('textopublicado', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -75,7 +80,7 @@ class TextopublicadoController extends Controller
         $textopublicado->update($request->validated());
 
         return Redirect::route('textopublicados.index')
-            ->with('success', 'Textopublicado updated successfully');
+            ->with('success', 'Modificado correctamente');
     }
 
     public function destroy($id): RedirectResponse
@@ -83,6 +88,6 @@ class TextopublicadoController extends Controller
         Textopublicado::find($id)->delete();
 
         return Redirect::route('textopublicados.index')
-            ->with('success', 'Textopublicado deleted successfully');
+            ->with('success', 'Eliminado correctamente');
     }
 }

@@ -2,7 +2,6 @@
 <link rel="icon" href="{{ asset('vendor/adminlte/dist/img/ICONO_esam.png') }}" type="image/png" sizes="16x16">
 @endsection
 
-@endsection
 <div class="row padding-1 p-1">
     <div class="col-md-12 row">
 
@@ -13,7 +12,7 @@
                 {!! $errors->first('institucion', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
             </div>
             <div class="form-group mb-2 mb20 text-sm">
-                <label for="cargoempleado" class="form-label text-sm">{{ __('Cargo de Empleado') }}</label>
+                <label for="cargoempleado" class="form-label text-sm">{{ __('Cargo Empleado') }}</label>
                 <input type="text" name="cargoempleado" class="form-control text-sm @error('cargoempleado') is-invalid @enderror" value="{{ old('cargoempleado', $funcadminacad?->cargoempleado) }}" id="cargoempleado">
                 {!! $errors->first('cargoempleado', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
             </div>
@@ -24,14 +23,21 @@
             </div>
             <div class="form-group mb-2 mb20 text-sm">
                 <label for="fechafin" class="form-label text-sm">{{ __('Fecha fin') }}</label>
-                <input type="date" name="fechafin" class="form-control text-sm @error('fechafin') is-invalid @enderror" value="{{ old('fechafin', $funcadminacad?->fechafin) }}" id="fechafin">
-                {!! $errors->first('fechafin', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+                <input type="date" name="fechafin" class="form-control text-sm @error('fechafin') is-invalid @enderror" value="{{ old('fechafin', $funcadminacad?->fechafin) }}" id="fechafin" min="{{ $funcadminacad?->fechainicio ?? '' }}">
+                    @error('fechafin')
+                        <div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>
+                    @enderror
+                    @if($funcadminacad?->fechainicio && $funcadminacad?->fechainicio > $funcadminacad?->fechafin)
+                        <span class="text-danger">La fecha final debe ser mayor que la fecha inicial.</span>
+                    @elseif($funcadminacad?->fechainicio && $funcadminacad?->fechainicio < $funcadminacad?->fechafin)
+                        <span class="text-danger">La fecha inicial debe ser menor que la fecha final.</span>
+                    @endif
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group mb-2 mb20 text-sm">
                 <label for="duracion" class="form-label text-sm">{{ __('Duración') }}</label>
-                <input type="text" name="duracion" class="form-control text-sm @error('duracion') is-invalid @enderror" value="{{ old('duracion', $funcadminacad?->duracion) }}" id="duracion">
+                <input type="text" name="duracion" class="form-control text-sm @error('duracion') is-invalid @enderror" value="{{ old('duracion', $funcadminacad?->duracion) }}" id="duracion" placeholder="En meses">
                 {!! $errors->first('duracion', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
             </div>
             <div class="form-group mb-2 mb20 text-sm">
@@ -48,7 +54,8 @@
                             {{ $datospersona->nombre }} {{ $datospersona->apellidoPaterno }} {{ $datospersona->apellidoMaterno }}
                         </option>
                     @endforeach
-                </select>                {!! $errors->first('datospersona_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+                </select>
+                {!! $errors->first('datospersona_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
             </div>
             <div class="form-group mb-2 mb20 text-sm">
                 <label for="user_id" class="form-label text-sm">{{ __('Registrado por') }}</label>

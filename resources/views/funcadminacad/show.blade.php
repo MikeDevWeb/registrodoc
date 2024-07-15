@@ -2,7 +2,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ $funcadminacad->name ?? __('Show') . " " . __('Funcadminacad') }}
+    {{ $funcadminacad->name ?? __('Revisar') . " " . __('Función administrativa / academica') }}
 @endsection
 
 @section('content')
@@ -12,44 +12,47 @@
                 <div class="card">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Funcadminacad</span>
-                        </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary btn-sm" href="{{ route('funcadminacads.index') }}"> {{ __('Back') }}</a>
+                            <span class="card-title">{{ __('Revisar') }} Función administrativa / academica</span>
                         </div>
                     </div>
 
                     <div class="card-body bg-white">
+                        <div class="form-group mb-2 mb20">
+                            <strong>Docente:</strong>
+                            {{ $funcadminacad->datospersona->nombre }} {{ $funcadminacad->datospersona->apellidoPaterno }} {{ $funcadminacad->datospersona->apellidoMaterno }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Institución:</strong>
+                            {{ $funcadminacad->institucion }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Cargoempleado:</strong>
+                            {{ $funcadminacad->cargoempleado }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Fecha inicio:</strong>
+                            {{ $funcadminacad->fechainicio }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Fecha fin:</strong>
+                            {{ $funcadminacad->fechafin }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Duración:</strong>
+                            {{ $funcadminacad->duracion }}
+                        </div>
 
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Institucion:</strong>
-                                    {{ $funcadminacad->institucion }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Cargoempleado:</strong>
-                                    {{ $funcadminacad->cargoempleado }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Fechainicio:</strong>
-                                    {{ $funcadminacad->fechainicio }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Fechafin:</strong>
-                                    {{ $funcadminacad->fechafin }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Duracion:</strong>
-                                    {{ $funcadminacad->duracion }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Datospersona Id:</strong>
-                                    {{ $funcadminacad->datospersona_id }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>User Id:</strong>
-                                    {{ $funcadminacad->user_id }}
-                                </div>
-
+                        <div class="form-group mb-2 mb20">
+                            <strong>Registrado por:</strong>
+                            {{ $funcadminacad->user->name }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Registrado:</strong>
+                            {{ $funcadminacad->fecharegistro }}
+                        </div>
+                        <div class="float-left">
+                            <a class="btn-primary btn-sm" href="{{ route('funcadminacads.index') }}"> {{ __('Volver') }}</a>
+                        </div>
                     </div>
                 </div>
             </div>

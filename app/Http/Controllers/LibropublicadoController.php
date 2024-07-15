@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Datospersona;
 use App\Models\Libropublicado;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -21,8 +22,9 @@ class LibropublicadoController extends Controller
     public function index(Request $request): View
     {
         $libropublicados = Libropublicado::paginate();
-
-        return view('libropublicado.index', compact('libropublicados'))
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('libropublicado.index', compact('libropublicados', 'datospersonas', 'datospersona'))
             ->with('i', ($request->input('page', 1) - 1) * $libropublicados->perPage());
     }
 
@@ -32,8 +34,9 @@ class LibropublicadoController extends Controller
     public function create(): View
     {
         $libropublicado = new Libropublicado();
-
-        return view('libropublicado.create', compact('libropublicado'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('libropublicado.create', compact('libropublicado', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -44,7 +47,7 @@ class LibropublicadoController extends Controller
         Libropublicado::create($request->validated());
 
         return Redirect::route('libropublicados.index')
-            ->with('success', 'Libropublicado created successfully.');
+            ->with('success', 'Registrado correctamente.');
     }
 
     /**
@@ -53,8 +56,9 @@ class LibropublicadoController extends Controller
     public function show($id): View
     {
         $libropublicado = Libropublicado::find($id);
-
-        return view('libropublicado.show', compact('libropublicado'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('libropublicado.show', compact('libropublicado', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -63,8 +67,9 @@ class LibropublicadoController extends Controller
     public function edit($id): View
     {
         $libropublicado = Libropublicado::find($id);
-
-        return view('libropublicado.edit', compact('libropublicado'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('libropublicado.edit', compact('libropublicado', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -75,7 +80,7 @@ class LibropublicadoController extends Controller
         $libropublicado->update($request->validated());
 
         return Redirect::route('libropublicados.index')
-            ->with('success', 'Libropublicado updated successfully');
+            ->with('success', 'Modificado correctamente');
     }
 
     public function destroy($id): RedirectResponse
@@ -83,6 +88,6 @@ class LibropublicadoController extends Controller
         Libropublicado::find($id)->delete();
 
         return Redirect::route('libropublicados.index')
-            ->with('success', 'Libropublicado deleted successfully');
+            ->with('success', 'Eliminado correctamente');
     }
 }

@@ -32,7 +32,7 @@
                     <div id="tablita_wrapper">
                         <div class="card-body bg-white">
                             <div class="table-responsive">
-                                <table id="tablita" class="table table-striped table-hover text-xs">
+                                <table id="tablita" class="table table-striped table-hover text-xs w-100">
                                     <thead class="thead">
                                         <tr>
                                             <th>#</th>
@@ -66,11 +66,11 @@
                                                 <td>
                                                     <form action="{{ route('funcadminacads.destroy', $funcadminacad->id) }}" method="POST">
                                                         <div class="btn-group">
-                                                            <a class="btn btn-sm btn-primary " href="{{ route('funcadminacads.show', $funcadminacad->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Revisar') }}</a>
-                                                            <a class="btn btn-sm btn-success" href="{{ route('funcadminacads.edit', $funcadminacad->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Modificar') }}</a>
+                                                            <a class="btn-xs btn-primary text-center" href="{{ route('funcadminacads.show', $funcadminacad->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Revisar') }}</a>
+                                                            <a class="btn-xs btn-success text-center" href="{{ route('funcadminacads.edit', $funcadminacad->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Modificar') }}</a>
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('Confirma eliminar el registro?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
+                                                            <button type="submit" class="btn-danger btn-xs" onclick="event.preventDefault(); confirm('Confirma eliminar el registro?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
                                                         </div>
                                                     </form>
                                                 </td>

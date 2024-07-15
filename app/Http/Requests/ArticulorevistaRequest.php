@@ -27,6 +27,7 @@ class ArticulorevistaRequest extends FormRequest
 			'organopublicacion' => 'required|string',
 			'autor' => 'required|string',
 			'coautor' => 'required|string',
+            'fecharegistro' => 'required|date',
 			'datospersona_id' => 'required',
 			'user_id' => 'required',
         ];

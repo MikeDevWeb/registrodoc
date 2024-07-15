@@ -41,8 +41,9 @@
                                             <th >Anio</th>
                                             <th >Grado Académico</th>
                                             <th >Titulo/Diploma</th>
-                                            <th >Registrado</th>
                                             <th >Registrado por</th>
+                                            <th >Registrado</th>
+
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -55,8 +56,9 @@
                                                 <td >{{ $formpostgrado->anio }}</td>
                                                 <td >{{ $formpostgrado->gradoacademico }}</td>
                                                 <td >{{ $formpostgrado->titulodiploma }}</td>
-                                                <td >{{ $formpostgrado->fecharegistro }}</td>
                                                 <td >{{ $formpostgrado->user->name }}</td>
+                                                <td >{{ $formpostgrado->fecharegistro }}</td>
+
                                                 <td>
                                                     <form action="{{ route('formpostgrados.destroy', $formpostgrado->id) }}" method="POST">
                                                         <div class="btn-group">

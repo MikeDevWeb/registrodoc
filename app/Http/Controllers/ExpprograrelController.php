@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Datospersona;
 use App\Models\Expprograrel;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -21,8 +22,9 @@ class ExpprograrelController extends Controller
     public function index(Request $request): View
     {
         $expprograrels = Expprograrel::paginate();
-
-        return view('expprograrel.index', compact('expprograrels'))
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('expprograrel.index', compact('expprograrels', 'datospersonas', 'datospersona'))
             ->with('i', ($request->input('page', 1) - 1) * $expprograrels->perPage());
     }
 
@@ -32,8 +34,9 @@ class ExpprograrelController extends Controller
     public function create(): View
     {
         $expprograrel = new Expprograrel();
-
-        return view('expprograrel.create', compact('expprograrel'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('expprograrel.create', compact('expprograrel', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -44,7 +47,7 @@ class ExpprograrelController extends Controller
         Expprograrel::create($request->validated());
 
         return Redirect::route('expprograrels.index')
-            ->with('success', 'Expprograrel created successfully.');
+            ->with('success', 'Registrado correctamente.');
     }
 
     /**
@@ -53,8 +56,9 @@ class ExpprograrelController extends Controller
     public function show($id): View
     {
         $expprograrel = Expprograrel::find($id);
-
-        return view('expprograrel.show', compact('expprograrel'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('expprograrel.show', compact('expprograrel', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -63,8 +67,9 @@ class ExpprograrelController extends Controller
     public function edit($id): View
     {
         $expprograrel = Expprograrel::find($id);
-
-        return view('expprograrel.edit', compact('expprograrel'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('expprograrel.edit', compact('expprograrel', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -75,7 +80,7 @@ class ExpprograrelController extends Controller
         $expprograrel->update($request->validated());
 
         return Redirect::route('expprograrels.index')
-            ->with('success', 'Expprograrel updated successfully');
+            ->with('success', 'Modificado correctamente');
     }
 
     public function destroy($id): RedirectResponse
@@ -83,6 +88,6 @@ class ExpprograrelController extends Controller
         Expprograrel::find($id)->delete();
 
         return Redirect::route('expprograrels.index')
-            ->with('success', 'Expprograrel deleted successfully');
+            ->with('success', 'Eliminado correctamente');
     }
 }

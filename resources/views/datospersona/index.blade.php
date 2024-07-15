@@ -59,7 +59,7 @@
                                         </button>
                                     </div>
                                 </div> --}}
-                                <table id="tablita" class="table-sm table-striped table-bordered text-xs">
+                                <table id="tablita" class="table-sm table-striped table-bordered text-xs w-100">
                                     <thead class="thead text-xs">
                                         <tr>
                                             <th>#</th>

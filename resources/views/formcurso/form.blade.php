@@ -44,8 +44,17 @@
             </div>
             <div class="form-group mb-2 mb20 text-sm">
                 <label for="fechafin" class="form-label text-sm">{{ __('Fecha fin') }}</label>
-                <input type="date" name="fechafin" class="form-control text-sm @error('fechafin') is-invalid @enderror" value="{{ old('fechafin', $formcurso?->fechafin) }}" id="fechafin" min="{{ $formcurso?->fechainicio ?? '' }}" required>
+                <input type="date" name="fechafin" class="form-control text-sm @error('fechafin') is-invalid @enderror" value="{{ old('fechafin', $formcurso?->fechafin) }}" id="fechafin" min="{{ $formcurso?->fechainicio ?? '' }}">
+                @error('fechafin')
+                    <div class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></div>
+                @enderror
+                @if($formcurso?->fechainicio && $formcurso?->fechainicio > $formcurso?->fechafin)
+                    <span class="text-danger">La fecha final debe ser mayor que la fecha inicial.</span>
+                @elseif($formcurso?->fechainicio && $formcurso?->fechainicio < $formcurso?->fechafin)
+                    <span class="text-danger">La fecha inicial debe ser menor que la fecha final.</span>
+                @endif
                 {!! $errors->first('fechafin', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+
             </div>
             <div class="form-group mb-2 mb20 text-sm">
                 <label for="duracion" class="form-label text-sm">{{ __('Duración') }}</label>
