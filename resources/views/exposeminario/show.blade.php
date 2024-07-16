@@ -2,7 +2,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ $exposeminario->name ?? __('Show') . " " . __('Exposeminario') }}
+    {{ $exposeminario->name ?? __('Revisar') . " " . __('Expositor en Seminario') }}
 @endsection
 
 @section('content')
@@ -12,49 +12,51 @@
                 <div class="card">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Exposeminario</span>
-                        </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary btn-sm" href="{{ route('exposeminarios.index') }}"> {{ __('Back') }}</a>
+                            <span class="card-title">{{ __('Revisar') }} Expositor en Seminario</span>
                         </div>
                     </div>
-
                     <div class="card-body bg-white">
 
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Institucion:</strong>
-                                    {{ $exposeminario->institucion }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Tipoevento:</strong>
-                                    {{ $exposeminario->tipoevento }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Tematica:</strong>
-                                    {{ $exposeminario->tematica }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Fechainicio:</strong>
-                                    {{ $exposeminario->fechainicio }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Fechafin:</strong>
-                                    {{ $exposeminario->fechafin }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Duracion:</strong>
-                                    {{ $exposeminario->duracion }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>Datospersona Id:</strong>
-                                    {{ $exposeminario->datospersona_id }}
-                                </div>
-                                <div class="form-group mb-2 mb20">
-                                    <strong>User Id:</strong>
-                                    {{ $exposeminario->user_id }}
-                                </div>
-
+                        <div class="form-group mb-2 mb20">
+                            <strong>Docente:</strong>
+                            {{ $exposeminario->datospersona->nombre }} {{ $exposeminario->datospersona->apellidoPaterno }} {{ $exposeminario->datospersona->apellidoMaterno }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Institución:</strong>
+                            {{ $exposeminario->institucion }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Tipo de evento:</strong>
+                            {{ $exposeminario->tipoevento }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Tematica:</strong>
+                            {{ $exposeminario->tematica }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Fecha inicio:</strong>
+                            {{ $exposeminario->fechainicio }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Fecha fin:</strong>
+                            {{ $exposeminario->fechafin }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Duración:</strong>
+                            {{ $exposeminario->duracion }}
+                        </div>
+                        <div class="form-group mb-2 mb20">
+                            <strong>Registrado por:</strong>
+                            {{ $exposeminario->user->name }}
+                        </div>
+                        <div class="form-group mb-2 mb20"></div>
+                            <strong>Registrado:</strong>
+                            {{ $exposeminario->fecharegistro }}
+                        </div>
                     </div>
+                </div>
+                <div class="float-left">
+                    <a class="btn-primary btn" href="{{ route('exposeminarios.index') }}"> {{ __('Volver') }}</a>
                 </div>
             </div>
         </div>

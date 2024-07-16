@@ -2,24 +2,24 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    Trabproyinvconcluidos
+    Trabajos/Proyectos de Investigación concluidos
 @endsection
 
 @section('content')
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
+                <div class="card text-sm">
+                    <div class="card-header text-sm">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title">
-                                {{ __('Trabproyinvconcluidos') }}
+                            <span id="card_title text-sm">
+                                {{ __('Trabajos/Proyectos de Investigación concluidos') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('trabproyinvconcluidos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear nuevo') }}
                                 </a>
                               </div>
                         </div>
@@ -29,53 +29,57 @@
                         <p>{{ $message }}</p>
                         </div>
                     @endif
-
-                    <div class="card-body bg-white">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover text-xs w-100">
-                                <thead class="thead">
-                                    <tr>
-                                        <th>No</th>
-
-									<th >Trabajoproyecto</th>
-									<th >Fechainicio</th>
-									<th >Fechafin</th>
-									<th >Duracion</th>
-									<th >Autor</th>
-									<th >Coautor</th>
-									<th >Datospersona Id</th>
-									<th >User Id</th>
-
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($trabproyinvconcluidos as $trabproyinvconcluido)
+                    <div id="tablita_wrapper">
+                        <div class="card-body bg-white text-sm">
+                            <div class="table-responsive">
+                                <table id="tablita" class="table table-striped table-hover text-xs w-100">
+                                    <thead class="thead">
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                            <th>#</th>
 
-										<td >{{ $trabproyinvconcluido->trabajoproyecto }}</td>
-										<td >{{ $trabproyinvconcluido->fechainicio }}</td>
-										<td >{{ $trabproyinvconcluido->fechafin }}</td>
-										<td >{{ $trabproyinvconcluido->duracion }}</td>
-										<td >{{ $trabproyinvconcluido->autor }}</td>
-										<td >{{ $trabproyinvconcluido->coautor }}</td>
-										<td >{{ $trabproyinvconcluido->datospersona_id }}</td>
-										<td >{{ $trabproyinvconcluido->user_id }}</td>
+                                            <th >Docente</th>
+                                            <th >Tipo de investigación</th>
+                                            <th >Fecha inicio</th>
+                                            <th >Fecha fin</th>
+                                            <th >Duración</th>
+                                            <th >Autor</th>
+                                            <th >Coautor</th>
+                                            <th >Registrado por</th>
+                                            <th >Registrado</th>
 
-                                            <td>
-                                                <form action="{{ route('trabproyinvconcluidos.destroy', $trabproyinvconcluido->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('trabproyinvconcluidos.show', $trabproyinvconcluido->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('trabproyinvconcluidos.edit', $trabproyinvconcluido->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
-                                                </form>
-                                            </td>
+                                            <th></th>
                                         </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($trabproyinvconcluidos as $trabproyinvconcluido)
+                                            <tr>
+                                                <td>{{ ++$i }}</td>
+
+                                                <td >{{ $trabproyinvconcluido->datospersona->nombre }} {{ $trabproyinvconcluido->datospersona->apellidoPaterno }} {{ $trabproyinvconcluido->datospersona->apellidoMaterno }}</td>
+                                                <td >{{ $trabproyinvconcluido->trabajoproyecto }}</td>
+                                                <td >{{ $trabproyinvconcluido->fechainicio }}</td>
+                                                <td >{{ $trabproyinvconcluido->fechafin }}</td>
+                                                <td >{{ $trabproyinvconcluido->duracion }}</td>
+                                                <td >{{ $trabproyinvconcluido->autor }}</td>
+                                                <td >{{ $trabproyinvconcluido->coautor }}</td>
+                                                <td >{{ $trabproyinvconcluido->user->name }}</td>
+                                                <td >{{ $trabproyinvconcluido->fecharegistro }}</td>
+                                                <td>
+                                                    <form action="{{ route('trabproyinvconcluidos.destroy', $trabproyinvconcluido->id) }}" method="POST">
+                                                        <div class="btn-group">
+                                                            <a class="btn-xs btn-primary text-center" href="{{ route('trabproyinvconcluidos.show', $trabproyinvconcluido->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Revisar') }}</a>
+                                                            <a class="btn-xs btn-success text-center" href="{{ route('trabproyinvconcluidos.edit', $trabproyinvconcluido->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Modificar') }}</a>
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn-danger btn-xs" onclick="event.preventDefault(); confirm('Confirma eliminar el registro?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

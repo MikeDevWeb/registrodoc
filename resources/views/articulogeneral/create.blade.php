@@ -2,24 +2,21 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Create') }} Articulogeneral
+    {{ __('Registrar') }} Artículo General
 @endsection
 
 @section('content')
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
-
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Create') }} Articulogeneral</span>
+                        <span class="card-title">{{ __('Registrar') }} Artículo General</span>
                     </div>
                     <div class="card-body bg-white">
                         <form method="POST" action="{{ route('articulogenerals.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
-
                             @include('articulogeneral.form')
-
                         </form>
                     </div>
                 </div>

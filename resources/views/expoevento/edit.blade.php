@@ -2,19 +2,19 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Update') }} Expoevento
+    {{ __('Modificar') }} Expositor en Evento cientificos
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
+    <section class="content container-fluid text-sm">
         <div class="">
             <div class="col-md-12">
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Expoevento</span>
+                <div class="card card-default text-sm">
+                    <div class="card-header text-sm">
+                        <span class="card-title">{{ __('Modificar') }} Expositor en Evento cientificos</span>
                     </div>
-                    <div class="card-body bg-white">
+                    <div class="card-body bg-white text-sm">
                         <form method="POST" action="{{ route('expoeventos.update', $expoevento->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf

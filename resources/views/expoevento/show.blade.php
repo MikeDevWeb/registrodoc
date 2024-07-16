@@ -2,7 +2,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ $expoevento->name ?? __('Show') . " " . __('Expoevento') }}
+    {{ $expoevento->name ?? __('Revisar') . " " . __('Expositor en Evento Científico') }}
 @endsection
 
 @section('content')
@@ -12,29 +12,27 @@
                 <div class="card">
                     <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Expoevento</span>
+                            <span class="card-title">{{ __('Revisar') }} Expositor en Evento Científico</span>
                         </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary btn-sm" href="{{ route('expoeventos.index') }}"> {{ __('Back') }}</a>
-                        </div>
+
                     </div>
 
                     <div class="card-body bg-white">
 
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Institucion:</strong>
+                                    <strong>Institución:</strong>
                                     {{ $expoevento->institucion }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Tipoevento:</strong>
+                                    <strong>Tipo de evento:</strong>
                                     {{ $expoevento->tipoevento }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Tematica:</strong>
+                                    <strong>Temática:</strong>
                                     {{ $expoevento->tematica }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Fechainicio:</strong>
+                                    <strong>Fecha inicio:</strong>
                                     {{ $expoevento->fechainicio }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
@@ -42,18 +40,20 @@
                                     {{ $expoevento->fechafin }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Duracion:</strong>
+                                    <strong>Duración:</strong>
                                     {{ $expoevento->duracion }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>Datospersona Id:</strong>
-                                    {{ $expoevento->datospersona_id }}
+                                    <strong>Docente:</strong>
+                                    {{ $expoevento->datospersona->nombre }} {{ $expoevento->datospersona->apellidoPaterno }} {{ $expoevento->datospersona->apellidoMaterno }}
                                 </div>
                                 <div class="form-group mb-2 mb20">
-                                    <strong>User Id:</strong>
-                                    {{ $expoevento->user_id }}
+                                    <strong>Registrado por:</strong>
+                                    {{ $expoevento->user->name }}
                                 </div>
-
+                                <div class="float-left">
+                                    <a class="btn btn-primary btn-sm" href="{{ route('expoeventos.index') }}"> {{ __('Volver') }}</a>
+                                </div>
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Datospersona;
 use App\Models\Reconocimiento;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -13,6 +14,7 @@ class ReconocimientoController extends Controller
 {
     public function __construct()
     {
+        \App::setLocale('es');
         $this->middleware('auth');
     }
     /**
@@ -21,8 +23,9 @@ class ReconocimientoController extends Controller
     public function index(Request $request): View
     {
         $reconocimientos = Reconocimiento::paginate();
-
-        return view('reconocimiento.index', compact('reconocimientos'))
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('reconocimiento.index', compact('reconocimientos', 'datospersonas', 'datospersona'))
             ->with('i', ($request->input('page', 1) - 1) * $reconocimientos->perPage());
     }
 
@@ -32,8 +35,9 @@ class ReconocimientoController extends Controller
     public function create(): View
     {
         $reconocimiento = new Reconocimiento();
-
-        return view('reconocimiento.create', compact('reconocimiento'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('reconocimiento.create', compact('reconocimiento', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -44,7 +48,7 @@ class ReconocimientoController extends Controller
         Reconocimiento::create($request->validated());
 
         return Redirect::route('reconocimientos.index')
-            ->with('success', 'Reconocimiento created successfully.');
+            ->with('success', 'Registrado correctamente.');
     }
 
     /**
@@ -53,8 +57,9 @@ class ReconocimientoController extends Controller
     public function show($id): View
     {
         $reconocimiento = Reconocimiento::find($id);
-
-        return view('reconocimiento.show', compact('reconocimiento'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('reconocimiento.show', compact('reconocimiento', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -63,8 +68,9 @@ class ReconocimientoController extends Controller
     public function edit($id): View
     {
         $reconocimiento = Reconocimiento::find($id);
-
-        return view('reconocimiento.edit', compact('reconocimiento'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('reconocimiento.edit', compact('reconocimiento', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -75,7 +81,7 @@ class ReconocimientoController extends Controller
         $reconocimiento->update($request->validated());
 
         return Redirect::route('reconocimientos.index')
-            ->with('success', 'Reconocimiento updated successfully');
+            ->with('success', 'Modificado correctamente');
     }
 
     public function destroy($id): RedirectResponse
@@ -83,6 +89,6 @@ class ReconocimientoController extends Controller
         Reconocimiento::find($id)->delete();
 
         return Redirect::route('reconocimientos.index')
-            ->with('success', 'Reconocimiento deleted successfully');
+            ->with('success', 'Eliminado correctamente');
     }
 }

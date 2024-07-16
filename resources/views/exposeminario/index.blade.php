@@ -2,24 +2,24 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    Exposeminarios
+    Expositor en Seminario
 @endsection
 
 @section('content')
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
+                <div class="card text-sm">
+                    <div class="card-header text-sm">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title">
-                                {{ __('Exposeminarios') }}
+                            <span id="card_title text-sm">
+                                {{ __('Expositor en seminario') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('exposeminarios.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear nuevo') }}
                                 </a>
                               </div>
                         </div>

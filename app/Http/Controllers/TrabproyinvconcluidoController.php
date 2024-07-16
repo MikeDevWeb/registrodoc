@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Datospersona;
 use App\Models\Trabproyinvconcluido;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -13,6 +14,7 @@ class TrabproyinvconcluidoController extends Controller
 {
     public function __construct()
     {
+        \App::setLocale('es');
         $this->middleware('auth');
     }
     /**
@@ -21,8 +23,9 @@ class TrabproyinvconcluidoController extends Controller
     public function index(Request $request): View
     {
         $trabproyinvconcluidos = Trabproyinvconcluido::paginate();
-
-        return view('trabproyinvconcluido.index', compact('trabproyinvconcluidos'))
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('trabproyinvconcluido.index', compact('trabproyinvconcluidos', 'datospersonas', 'datospersona'))
             ->with('i', ($request->input('page', 1) - 1) * $trabproyinvconcluidos->perPage());
     }
 
@@ -32,8 +35,9 @@ class TrabproyinvconcluidoController extends Controller
     public function create(): View
     {
         $trabproyinvconcluido = new Trabproyinvconcluido();
-
-        return view('trabproyinvconcluido.create', compact('trabproyinvconcluido'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('trabproyinvconcluido.create', compact('trabproyinvconcluido', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -44,7 +48,7 @@ class TrabproyinvconcluidoController extends Controller
         Trabproyinvconcluido::create($request->validated());
 
         return Redirect::route('trabproyinvconcluidos.index')
-            ->with('success', 'Trabproyinvconcluido created successfully.');
+            ->with('success', 'Registrado correctamente.');
     }
 
     /**
@@ -53,8 +57,9 @@ class TrabproyinvconcluidoController extends Controller
     public function show($id): View
     {
         $trabproyinvconcluido = Trabproyinvconcluido::find($id);
-
-        return view('trabproyinvconcluido.show', compact('trabproyinvconcluido'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('trabproyinvconcluido.show', compact('trabproyinvconcluido', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -63,8 +68,9 @@ class TrabproyinvconcluidoController extends Controller
     public function edit($id): View
     {
         $trabproyinvconcluido = Trabproyinvconcluido::find($id);
-
-        return view('trabproyinvconcluido.edit', compact('trabproyinvconcluido'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('trabproyinvconcluido.edit', compact('trabproyinvconcluido', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -75,7 +81,7 @@ class TrabproyinvconcluidoController extends Controller
         $trabproyinvconcluido->update($request->validated());
 
         return Redirect::route('trabproyinvconcluidos.index')
-            ->with('success', 'Trabproyinvconcluido updated successfully');
+            ->with('success', 'Modificado correctamente');
     }
 
     public function destroy($id): RedirectResponse
@@ -83,6 +89,6 @@ class TrabproyinvconcluidoController extends Controller
         Trabproyinvconcluido::find($id)->delete();
 
         return Redirect::route('trabproyinvconcluidos.index')
-            ->with('success', 'Trabproyinvconcluido deleted successfully');
+            ->with('success', 'Eliminado correctamente');
     }
 }

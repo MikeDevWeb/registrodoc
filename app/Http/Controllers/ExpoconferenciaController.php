@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Datospersona;
 use App\Models\Expoconferencia;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -13,6 +14,7 @@ class ExpoconferenciaController extends Controller
 {
     public function __construct()
     {
+        \App::setLocale('es');
         $this->middleware('auth');
     }
     /**
@@ -21,8 +23,9 @@ class ExpoconferenciaController extends Controller
     public function index(Request $request): View
     {
         $expoconferencias = Expoconferencia::paginate();
-
-        return view('expoconferencia.index', compact('expoconferencias'))
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('expoconferencia.index', compact('expoconferencias', 'datospersonas', 'datospersona'))
             ->with('i', ($request->input('page', 1) - 1) * $expoconferencias->perPage());
     }
 
@@ -32,8 +35,9 @@ class ExpoconferenciaController extends Controller
     public function create(): View
     {
         $expoconferencia = new Expoconferencia();
-
-        return view('expoconferencia.create', compact('expoconferencia'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('expoconferencia.create', compact('expoconferencia', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -44,7 +48,7 @@ class ExpoconferenciaController extends Controller
         Expoconferencia::create($request->validated());
 
         return Redirect::route('expoconferencias.index')
-            ->with('success', 'Expoconferencia created successfully.');
+            ->with('success', 'Registrado correctamente.');
     }
 
     /**
@@ -53,8 +57,9 @@ class ExpoconferenciaController extends Controller
     public function show($id): View
     {
         $expoconferencia = Expoconferencia::find($id);
-
-        return view('expoconferencia.show', compact('expoconferencia'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('expoconferencia.show', compact('expoconferencia', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -63,8 +68,9 @@ class ExpoconferenciaController extends Controller
     public function edit($id): View
     {
         $expoconferencia = Expoconferencia::find($id);
-
-        return view('expoconferencia.edit', compact('expoconferencia'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('expoconferencia.edit', compact('expoconferencia', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -75,7 +81,7 @@ class ExpoconferenciaController extends Controller
         $expoconferencia->update($request->validated());
 
         return Redirect::route('expoconferencias.index')
-            ->with('success', 'Expoconferencia updated successfully');
+            ->with('success', 'Modificado correctamente');
     }
 
     public function destroy($id): RedirectResponse
@@ -83,6 +89,6 @@ class ExpoconferenciaController extends Controller
         Expoconferencia::find($id)->delete();
 
         return Redirect::route('expoconferencias.index')
-            ->with('success', 'Expoconferencia deleted successfully');
+            ->with('success', 'Eliminado correctamente');
     }
 }

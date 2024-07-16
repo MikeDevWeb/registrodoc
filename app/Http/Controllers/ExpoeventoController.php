@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Datospersona;
 use App\Models\Expoevento;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -13,6 +14,7 @@ class ExpoeventoController extends Controller
 {
     public function __construct()
     {
+        \App::setLocale('es');
         $this->middleware('auth');
     }
     /**
@@ -21,8 +23,9 @@ class ExpoeventoController extends Controller
     public function index(Request $request): View
     {
         $expoeventos = Expoevento::paginate();
-
-        return view('expoevento.index', compact('expoeventos'))
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('expoevento.index', compact('expoeventos', 'datospersonas', 'datospersona'))
             ->with('i', ($request->input('page', 1) - 1) * $expoeventos->perPage());
     }
 
@@ -32,8 +35,9 @@ class ExpoeventoController extends Controller
     public function create(): View
     {
         $expoevento = new Expoevento();
-
-        return view('expoevento.create', compact('expoevento'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('expoevento.create', compact('expoevento', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -44,7 +48,7 @@ class ExpoeventoController extends Controller
         Expoevento::create($request->validated());
 
         return Redirect::route('expoeventos.index')
-            ->with('success', 'Expoevento created successfully.');
+            ->with('success', 'Registrado correctamente.');
     }
 
     /**
@@ -53,8 +57,9 @@ class ExpoeventoController extends Controller
     public function show($id): View
     {
         $expoevento = Expoevento::find($id);
-
-        return view('expoevento.show', compact('expoevento'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('expoevento.show', compact('expoevento', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -63,8 +68,9 @@ class ExpoeventoController extends Controller
     public function edit($id): View
     {
         $expoevento = Expoevento::find($id);
-
-        return view('expoevento.edit', compact('expoevento'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('expoevento.edit', compact('expoevento', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -75,7 +81,7 @@ class ExpoeventoController extends Controller
         $expoevento->update($request->validated());
 
         return Redirect::route('expoeventos.index')
-            ->with('success', 'Expoevento updated successfully');
+            ->with('success', 'Modificado correctamente');
     }
 
     public function destroy($id): RedirectResponse
@@ -83,6 +89,6 @@ class ExpoeventoController extends Controller
         Expoevento::find($id)->delete();
 
         return Redirect::route('expoeventos.index')
-            ->with('success', 'Expoevento deleted successfully');
+            ->with('success', 'Eliminado correctamente');
     }
 }

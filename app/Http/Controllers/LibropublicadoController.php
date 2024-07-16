@@ -14,6 +14,7 @@ class LibropublicadoController extends Controller
 {
     public function __construct()
     {
+        \App::setLocale('es');
         $this->middleware('auth');
     }
     /**

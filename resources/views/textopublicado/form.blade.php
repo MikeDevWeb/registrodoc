@@ -20,24 +20,24 @@
             </div>
             <div class="form-group mb-2 mb20 text-sm">
                 <label for="titulo" class="form-label text-sm">{{ __('Título') }}</label>
-                <input type="text" name="titulo" class="form-control text-sm @error('titulo') is-invalid @enderror" value="{{ old('titulo', $textopublicado?->titulo) }}" id="titulo" placeholder="Titulo">
+                <input type="text" name="titulo" class="form-control text-sm @error('titulo') is-invalid @enderror" value="{{ old('titulo', $textopublicado?->titulo) }}" id="titulo" placeholder="">
                 {!! $errors->first('titulo', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
             </div>
             <div class="form-group mb-2 mb20 text-sm">
                 <label for="anio" class="form-label text-sm">{{ __('Año') }}</label>
-                <input type="text" name="anio" class="form-control text-sm @error('anio') is-invalid @enderror" value="{{ old('anio', $textopublicado?->anio) }}" id="anio" placeholder="Anio">
+                <input type="text" name="anio" class="form-control text-sm @error('anio') is-invalid @enderror" value="{{ old('anio', $textopublicado?->anio) }}" id="anio" placeholder="">
                 {!! $errors->first('anio', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
             </div>
             <div class="form-group mb-2 mb20 text-sm">
                 <label for="autor" class="form-label text-sm">{{ __('Autor') }}</label>
-                <input type="text" name="autor" class="form-control text-sm @error('autor') is-invalid @enderror" value="{{ old('autor', $textopublicado?->autor) }}" id="autor" placeholder="Autor">
+                <input type="text" name="autor" class="form-control text-sm @error('autor') is-invalid @enderror" value="{{ old('autor', $textopublicado?->autor) }}" id="autor" placeholder="">
                 {!! $errors->first('autor', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group mb-2 mb20 text-sm">
                 <label for="coautor" class="form-label text-sm">{{ __('Coautor') }}</label>
-                <input type="text" name="coautor" class="form-control text-sm @error('coautor') is-invalid @enderror" value="{{ old('coautor', $textopublicado?->coautor) }}" id="coautor" placeholder="Coautor">
+                <input type="text" name="coautor" class="form-control text-sm @error('coautor') is-invalid @enderror" value="{{ old('coautor', $textopublicado?->coautor) }}" id="coautor" placeholder="">
                 {!! $errors->first('coautor', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
             </div>
             <div class="form-group mb-2 mb20 text-sm">

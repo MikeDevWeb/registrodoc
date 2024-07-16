@@ -1,17 +1,7 @@
 <div class="row padding-1 p-1">
     <div class="col-md-12 row">
         <div class="col-md-6">
-            <div class="form-group mb-2 mb20 text-sm">
-                <label for="user_id" class="form-label text-sm">{{ __('Registrado por') }}</label>
-                <input title="Registrado por" readonly hidden required type="text" name="user_id" class="form-control text-sm text-sm @error('user_id') is-invalid @enderror" value="{{ auth()->user()->id }}" id="user_id">
-                <input title="Registrado por" class="form-control text-sm" type="text" readonly='true' value="{{ auth()->user()->name }}">
-            {!! $errors->first('user_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-            </div>
-            <div class="form-group mb-2 mb20 text-sm">
-                <label for="fecharegistro" class="form-label text-sm">{{ __('Fecha Registro') }}</label>
-                <input readonly required type="text" name="fecharegistro" class="form-control text-sm @error('fecharegistro') is-invalid @enderror" value="{{ old('fecharegistro', $expdocente?->fecharegistro ?? \Carbon\Carbon::now()->format('Y-m-d')) }}" id="fecharegistro">
-                {!! $errors->first('fecharegistro', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-            </div>
+
             <div class="form-group md-4 mb-2 mb20 text-sm">
                 <label for="datospersona_id" class="form-label text-sm">{{ __('Nombre Docente') }}</label>
                 <select class="text-sm form-control text-sm text-sm @error('datospersona_id') is-invalid @enderror" name="datospersona_id" id="datospersona_id">
@@ -34,8 +24,6 @@
                 <input type="text" name="institucion" class="form-control text-sm @error('institucion') is-invalid @enderror" value="{{ old('institucion', $expdocente?->institucion) }}" id="institucion">
                 {!! $errors->first('institucion', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
             </div>
-        </div>
-        <div class="col-md-6">
             <div class="form-group mb-2 mb20 text-sm">
                 <label for="carrera" class="form-label text-sm">{{ __('Carrera') }}</label>
                 <input type="text" name="carrera" class="form-control text-sm @error('carrera') is-invalid @enderror" value="{{ old('carrera', $expdocente?->carrera) }}" id="carrera">
@@ -46,6 +34,9 @@
                 <input type="date" name="fechainicio" class="form-control text-sm @error('fechainicio') is-invalid @enderror" value="{{ old('fechainicio', $expdocente?->fechainicio) }}" id="fechainicio">
                 {!! $errors->first('fechainicio', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
             </div>
+        </div>
+        <div class="col-md-6">
+
             <div class="form-group mb-2 mb20 text-sm">
                 <label for="fechafin" class="form-label text-sm">{{ __('Fecha fin') }}</label>
                 <input type="date" name="fechafin" class="form-control text-sm @error('fechafin') is-invalid @enderror" value="{{ old('fechafin', $expdocente?->fechafin) }}" id="fechafin">
@@ -55,6 +46,17 @@
                 <label for="duracion" class="form-label text-sm">{{ __('Duracion') }}</label>
                 <input type="text" name="duracion" class="form-control text-sm @error('duracion') is-invalid @enderror" value="{{ old('duracion', $expdocente?->duracion) }}" id="duracion" placeholder="">
                 {!! $errors->first('duracion', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+            </div>
+            <div class="form-group mb-2 mb20 text-sm">
+                <label for="user_id" class="form-label text-sm">{{ __('Registrado por') }}</label>
+                <input title="Registrado por" readonly hidden required type="text" name="user_id" class="form-control text-sm text-sm @error('user_id') is-invalid @enderror" value="{{ auth()->user()->id }}" id="user_id">
+                <input title="Registrado por" class="form-control text-sm" type="text" readonly='true' value="{{ auth()->user()->name }}">
+            {!! $errors->first('user_id', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
+            </div>
+            <div class="form-group mb-2 mb20 text-sm">
+                <label for="fecharegistro" class="form-label text-sm">{{ __('Fecha Registro') }}</label>
+                <input readonly required type="text" name="fecharegistro" class="form-control text-sm @error('fecharegistro') is-invalid @enderror" value="{{ old('fecharegistro', $expdocente?->fecharegistro ?? \Carbon\Carbon::now()->format('Y-m-d')) }}" id="fecharegistro">
+                {!! $errors->first('fecharegistro', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
             </div>
         </div>
     </div>

@@ -376,18 +376,18 @@ return [
                 [
                     'text' => 'Funciones Administrativas/Académicas',
                     'url' => 'funcadminacads',
-                    'icon' => 'fas fa-fw fa-lock',
+                    'icon' => 'fas fa-fw fa-chalkboard-teacher',
                 ],
 
                 [
                     'text' => 'Experiencia Tutor/Tribunal',
                     'url' => 'tutortribunals',
-                    'icon' => 'fas fa-fw fa-lock',
+                    'icon' => 'fas fa-fw fa-award',
                 ],
                 [
                     'text' => 'Experiencia Relacionada al Programa',
                     'url' => 'expprograrels',
-                    'icon' => 'fas fa-fw fa-lock',
+                    'icon' => 'fas fa-fw fa-project-diagram',
                 ],
             ],
         ],
@@ -400,12 +400,12 @@ return [
                 [
                     'text' => 'Libros Publicados',
                     'url' => 'libropublicados',
-                    'icon' => 'fas fa-fw fa-lock',
+                    'icon' => 'fas fa-fw fa-edit',
                 ],
                 [
                     'text' => 'Textos Publicados',
                     'url' => 'textopublicados',
-                    'icon' => 'fas fa-fw fa-lock',
+                    'icon' => 'fas fa-fw fa-book-open',
                 ],
             ],
         ],
@@ -419,12 +419,12 @@ return [
                 [
                     'text' => 'Artículos Publicados en Revistas',
                     'url' => 'articulorevistas',
-                    'icon' => 'fas fa-fw fa-lock',
+                    'icon' => 'fas fa-fw fa-sticky-note',
                 ],
                 [
                     'text' => 'Artículos Generales',
                     'url' => 'articulogenerals',
-                    'icon' => 'fas fa-fw fa-lock',
+                    'icon' => 'fas fa-fw fa-tags',
                 ],
             ],
         ],
@@ -437,7 +437,7 @@ return [
                 [
                     'text' => 'Trabajos / Proyectos / investigaciones Concluidos',
                     'url' => 'trabproyinvconcluidos',
-                    'icon' => 'fas fa-fw fa-lock',
+                    'icon' => 'fas fa-fw fa-atlas',
                 ],
             ],
         ],
@@ -451,17 +451,17 @@ return [
                 [
                     'text' => 'Eventos Científicos',
                     'url' => 'expoeventos',
-                    'icon' => 'fas fa-fw fa-lock',
+                    'icon' => 'fas fa-fw fa-flask',
                 ],
                 [
                     'text' => 'Seminarios',
                     'url' => 'exposeminarios',
-                    'icon' => 'fas fa-fw fa-lock',
+                    'icon' => 'fas fa-fw fa-comments',
                 ],
                 [
                     'text' => 'Conferencias',
                     'url' => 'expoconferencias',
-                    'icon' => 'fas fa-fw fa-lock',
+                    'icon' => 'fas fa-fw fa-headset',
                 ],
             ],
         ],

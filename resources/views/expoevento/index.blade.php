@@ -2,24 +2,24 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    Expoeventos
+    Expositor en Evento Científico
 @endsection
 
 @section('content')
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
+                <div class="card text-sm">
+                    <div class="card-header text-sm">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
-                            <span id="card_title">
-                                {{ __('Expoeventos') }}
+                            <span id="card_title text-sm">
+                                {{ __('Expositor en Evento Científico') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('expoeventos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear nuevo') }}
                                 </a>
                               </div>
                         </div>
@@ -30,52 +30,57 @@
                         </div>
                     @endif
 
-                    <div class="card-body bg-white">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover text-xs w-100">
-                                <thead class="thead">
-                                    <tr>
-                                        <th>No</th>
-
-									<th >Institucion</th>
-									<th >Tipoevento</th>
-									<th >Tematica</th>
-									<th >Fechainicio</th>
-									<th >Fechafin</th>
-									<th >Duracion</th>
-									<th >Datospersona Id</th>
-									<th >User Id</th>
-
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($expoeventos as $expoevento)
+                    <div id="tablita_wrapper">
+                        <div class="card-body bg-white text-sm">
+                            <div class="table-responsive">
+                                <table id="tablita" class="table table-striped table-hover text-xs w-100">
+                                    <thead class="thead">
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                            <th>#</th>
 
-										<td >{{ $expoevento->institucion }}</td>
-										<td >{{ $expoevento->tipoevento }}</td>
-										<td >{{ $expoevento->tematica }}</td>
-										<td >{{ $expoevento->fechainicio }}</td>
-										<td >{{ $expoevento->fechafin }}</td>
-										<td >{{ $expoevento->duracion }}</td>
-										<td >{{ $expoevento->datospersona_id }}</td>
-										<td >{{ $expoevento->user_id }}</td>
+                                            <th >Docente</th>
+                                        <th >Institución</th>
+                                        <th >Tipo de evento</th>
+                                        <th >Temática</th>
+                                        <th >Fecha inicio</th>
+                                        <th >Fecha fin</th>
+                                        <th >Duración</th>
+                                        <th >Registrado por</th>
+                                        <th >Registrado</th>
 
-                                            <td>
-                                                <form action="{{ route('expoeventos.destroy', $expoevento->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('expoeventos.show', $expoevento->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('expoeventos.edit', $expoevento->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
-                                                </form>
-                                            </td>
+                                            <th></th>
                                         </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($expoeventos as $expoevento)
+                                            <tr>
+                                                <td>{{ ++$i }}</td>
+
+                                                <td >{{ $expoevento->datospersona->nombre }} {{ $expoevento->datospersona->apellidoPaterno }} {{ $expoevento->datospersona->apellidoMaterno }}</td>
+                                            <td >{{ $expoevento->institucion }}</td>
+                                            <td >{{ $expoevento->tipoevento }}</td>
+                                            <td >{{ $expoevento->tematica }}</td>
+                                            <td >{{ $expoevento->fechainicio }}</td>
+                                            <td >{{ $expoevento->fechafin }}</td>
+                                            <td >{{ $expoevento->duracion }}</td>
+                                            <td >{{ $expoevento->user->name }}</td>
+                                            <td >{{ $expoevento->fecharegistro }}</td>
+                                                <td>
+                                                    <form action="{{ route('expoeventos.destroy', $expoevento->id) }}" method="POST">
+                                                        <div class="btn-group">
+                                                            <a class="btn-xs btn-primary text-center" href="{{ route('expoeventos.show', $expoevento->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Revisar') }}</a>
+                                                            <a class="btn-xs btn-success text-center" href="{{ route('expoeventos.edit', $expoevento->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Modificar') }}</a>
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn-danger btn-xs" onclick="event.preventDefault(); confirm('Confirma eliminar el registro?') ? this.closest('form').submit() : false;"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>

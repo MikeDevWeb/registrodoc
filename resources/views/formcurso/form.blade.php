@@ -73,7 +73,6 @@
                 {!! $errors->first('fecharegistro', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
             </div>
         </div>
-
     </div>
     <div class="col-md-12 mt20 mt-2">
         <button type="submit" class="btn-sm btn-primary">{{ __('Registrar') }}</button>

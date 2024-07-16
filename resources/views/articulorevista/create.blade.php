@@ -2,7 +2,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Create') }} Artículo en revista
+    {{ __('Registrar') }} Artículo en revista
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Create') }} Articulorevista</span>
+                        <span class="card-title">{{ __('Registrar') }} Artículo en revista</span>
                     </div>
                     <div class="card-body bg-white">
                         <form method="POST" action="{{ route('articulorevistas.store') }}"  role="form" enctype="multipart/form-data">

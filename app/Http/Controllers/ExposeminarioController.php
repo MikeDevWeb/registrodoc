@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Datospersona;
 use App\Models\Exposeminario;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -13,6 +14,7 @@ class ExposeminarioController extends Controller
 {
     public function __construct()
     {
+        \App::setLocale('es');
         $this->middleware('auth');
     }
     /**
@@ -21,8 +23,9 @@ class ExposeminarioController extends Controller
     public function index(Request $request): View
     {
         $exposeminarios = Exposeminario::paginate();
-
-        return view('exposeminario.index', compact('exposeminarios'))
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('exposeminario.index', compact('exposeminarios', 'datospersonas', 'datospersona'))
             ->with('i', ($request->input('page', 1) - 1) * $exposeminarios->perPage());
     }
 
@@ -32,8 +35,9 @@ class ExposeminarioController extends Controller
     public function create(): View
     {
         $exposeminario = new Exposeminario();
-
-        return view('exposeminario.create', compact('exposeminario'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('exposeminario.create', compact('exposeminario', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -44,7 +48,7 @@ class ExposeminarioController extends Controller
         Exposeminario::create($request->validated());
 
         return Redirect::route('exposeminarios.index')
-            ->with('success', 'Exposeminario created successfully.');
+            ->with('success', 'Registrado correctamente.');
     }
 
     /**
@@ -53,8 +57,9 @@ class ExposeminarioController extends Controller
     public function show($id): View
     {
         $exposeminario = Exposeminario::find($id);
-
-        return view('exposeminario.show', compact('exposeminario'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('exposeminario.show', compact('exposeminario', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -63,8 +68,9 @@ class ExposeminarioController extends Controller
     public function edit($id): View
     {
         $exposeminario = Exposeminario::find($id);
-
-        return view('exposeminario.edit', compact('exposeminario'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('exposeminario.edit', compact('exposeminario', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -75,7 +81,7 @@ class ExposeminarioController extends Controller
         $exposeminario->update($request->validated());
 
         return Redirect::route('exposeminarios.index')
-            ->with('success', 'Exposeminario updated successfully');
+            ->with('success', 'Modificado correctamente');
     }
 
     public function destroy($id): RedirectResponse
@@ -83,6 +89,6 @@ class ExposeminarioController extends Controller
         Exposeminario::find($id)->delete();
 
         return Redirect::route('exposeminarios.index')
-            ->with('success', 'Exposeminario deleted successfully');
+            ->with('success', 'Eliminado correctamente');
     }
 }

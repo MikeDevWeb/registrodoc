@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Articulogeneral;
+use App\Models\Datospersona;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\ArticulogeneralRequest;
@@ -13,6 +14,7 @@ class ArticulogeneralController extends Controller
 {
     public function __construct()
     {
+        \App::setLocale('es');
         $this->middleware('auth');
     }
     /**
@@ -21,8 +23,9 @@ class ArticulogeneralController extends Controller
     public function index(Request $request): View
     {
         $articulogenerals = Articulogeneral::paginate();
-
-        return view('articulogeneral.index', compact('articulogenerals'))
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('articulogeneral.index', compact('articulogenerals', 'datospersonas', 'datospersona'))
             ->with('i', ($request->input('page', 1) - 1) * $articulogenerals->perPage());
     }
 
@@ -32,8 +35,9 @@ class ArticulogeneralController extends Controller
     public function create(): View
     {
         $articulogeneral = new Articulogeneral();
-
-        return view('articulogeneral.create', compact('articulogeneral'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('articulogeneral.create', compact('articulogeneral', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -44,7 +48,7 @@ class ArticulogeneralController extends Controller
         Articulogeneral::create($request->validated());
 
         return Redirect::route('articulogenerals.index')
-            ->with('success', 'Articulogeneral created successfully.');
+            ->with('success', 'Registrado correctamente.');
     }
 
     /**
@@ -53,8 +57,9 @@ class ArticulogeneralController extends Controller
     public function show($id): View
     {
         $articulogeneral = Articulogeneral::find($id);
-
-        return view('articulogeneral.show', compact('articulogeneral'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('articulogeneral.show', compact('articulogeneral', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -63,8 +68,9 @@ class ArticulogeneralController extends Controller
     public function edit($id): View
     {
         $articulogeneral = Articulogeneral::find($id);
-
-        return view('articulogeneral.edit', compact('articulogeneral'));
+        $datospersonas = Datospersona::all();
+        $datospersona = $datospersonas;
+        return view('articulogeneral.edit', compact('articulogeneral', 'datospersonas', 'datospersona'));
     }
 
     /**
@@ -75,7 +81,7 @@ class ArticulogeneralController extends Controller
         $articulogeneral->update($request->validated());
 
         return Redirect::route('articulogenerals.index')
-            ->with('success', 'Articulogeneral updated successfully');
+            ->with('success', 'Modificado correctamente');
     }
 
     public function destroy($id): RedirectResponse
@@ -83,7 +89,7 @@ class ArticulogeneralController extends Controller
         Articulogeneral::find($id)->delete();
 
         return Redirect::route('articulogenerals.index')
-            ->with('success', 'Articulogeneral deleted successfully');
+            ->with('success', 'Eliminado correctamente');
     }
 
 }
