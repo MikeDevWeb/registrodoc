@@ -464,6 +464,12 @@ return [
                     'icon' => 'fas fa-fw fa-headset',
                 ],
             ],
+
+        ],
+        [
+            'text' => 'Reconocimientos',
+            'url' => 'reconocimientos',
+            'icon' => 'fas fa-fw fa-award',
         ],
     ],
 

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticulogeneralController;
 use App\Http\Controllers\ArticulorevistaController;
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\ReconocimientoController;
 use App\Mail\HelloMail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DatospersonaController;
@@ -57,3 +58,4 @@ Route::resource('trabproyinvconcluidos', TrabproyinvconcluidoController::class);
 Route::resource('contactos', ContactoController::class);
 Route::resource('articulogenerals', ArticulogeneralController::class);
 Route::resource('articulorevistas', ArticulorevistaController::class);
+Route::resource('reconocimientos', ReconocimientoController::class);
