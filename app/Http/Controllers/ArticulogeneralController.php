@@ -14,7 +14,7 @@ class ArticulogeneralController extends Controller
 {
     public function __construct()
     {
-        \App::setLocale('es');
+
         $this->middleware('auth');
     }
     /**
@@ -22,7 +22,7 @@ class ArticulogeneralController extends Controller
      */
     public function index(Request $request): View
     {
-        $articulogenerals = Articulogeneral::paginate();
+        $articulogenerals = Articulogeneral::with('user')->paginate();
         $datospersonas = Datospersona::all();
         $datospersona = $datospersonas;
         return view('articulogeneral.index', compact('articulogenerals', 'datospersonas', 'datospersona'))

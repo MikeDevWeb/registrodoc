@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticulogeneralController;
 use App\Http\Controllers\ArticulorevistaController;
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\PdfsController;
 use App\Http\Controllers\ReconocimientoController;
 use App\Mail\HelloMail;
 use Illuminate\Support\Facades\Route;
@@ -22,12 +23,20 @@ use App\Http\Controllers\TextopublicadoController;
 use App\Http\Controllers\TutortribunalController;
 use App\Http\Controllers\TrabproyinvconcluidoController;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 
 // Route::get('/', function () {
 
 // Mail::to('miguel.vertis@esam.edu.bo')->send(new HelloMail());
 // });
 
+
+// dump para db
+// use Illuminate\Support\Facades\Artisan;
+// Artisan::call('db:seed', [
+//     '--class' => 'DatabaseSeeder',
+//     '--force' => true,
+// ]);
 
 Route::get('/', function () {
 
@@ -37,10 +46,24 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// DB::listen(function($query) {
+//     dump($query->sql);
+// });
 Route::resource('datospersonas', DatospersonaController::class);
 // Route::get('/datospersonas/pdf', [DatospersonaController::class, 'generarPDF'])->name('datospersonas.pdf');
 
 Route::resource('datospersonbs', DatospersonbController::class);
+
+
+
+// web.php
+// Route::post('/generate-pdf', [PdfsController::class, 'generatePdf'])->name('generate.pdf');
+
+// web.php
+Route::post('/generate-pdf', [PdfsController::class, 'generatePdf'])->name('generate.pdf');
+
 
 Route::resource('expdocentes', ExpdocenteController::class);
 Route::resource('expoconferencias', ExpoconferenciaController::class);

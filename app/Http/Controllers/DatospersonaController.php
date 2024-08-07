@@ -14,7 +14,6 @@ class DatospersonaController extends Controller
 {
     public function __construct()
     {
-        \App::setLocale('es');
         $this->middleware('auth');
     }
     /**
@@ -22,7 +21,7 @@ class DatospersonaController extends Controller
      */
     public function index(Request $request): View
     {
-        $datospersonas = Datospersona::paginate();
+        $datospersonas = Datospersona::with('user')->paginate();
 
         return view('datospersona.index', compact('datospersonas'))
             ->with('i', ($request->input('page', 1) - 1) * $datospersonas->perPage());

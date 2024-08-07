@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use App\Models\Datospersona;
 use App\Models\Datospersonb;
 use Illuminate\Http\RedirectResponse;
@@ -15,7 +15,7 @@ class DatospersonbController extends Controller
 {
     public function __construct()
     {
-        \App::setLocale('es');
+
         $this->middleware('auth');
     }
     /**
@@ -23,7 +23,8 @@ class DatospersonbController extends Controller
      */
     public function index(Request $request): View
     {
-        $datospersonbs = Datospersonb::paginate();
+
+        $datospersonbs = Datospersonb::with('user')->paginate();
 
         $datospersona = Datospersona::all();
 

@@ -613,6 +613,10 @@ return [
         ],
     ],
 
+    'providers' => [
+        // Otros proveedores de servicios...
+        Barryvdh\DomPDF\ServiceProvider::class,
+    ],
     /*
     |--------------------------------------------------------------------------
     | Livewire
