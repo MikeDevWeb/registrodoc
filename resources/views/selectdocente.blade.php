@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h2>Seleccionar Docente</h2>
-    <form action="{{ route('generarpdf') }}" method="POST">
+    <form action="{{ route('generar-pdf') }}" method="POST">
         @csrf
         <div class="form-group">
             <label for="datospersona_id">Seleccione un Docente:</label>

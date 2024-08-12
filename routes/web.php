@@ -3,7 +3,9 @@
 use App\Http\Controllers\ArticulogeneralController;
 use App\Http\Controllers\ArticulorevistaController;
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\DocenteController;
 use App\Http\Controllers\PdfController;
+use App\Http\Controllers\PdfprintController;
 use App\Http\Controllers\PdfsController;
 use App\Http\Controllers\ReconocimientoController;
 use App\Mail\HelloMail;
@@ -71,12 +73,18 @@ Route::resource('trabproyinvconcluidos', TrabproyinvconcluidoController::class);
 Route::resource('articulogenerals', ArticulogeneralController::class);
 Route::resource('articulorevistas', ArticulorevistaController::class);
 Route::resource('reconocimientos', ReconocimientoController::class);
+
+
+
+Route::get('/select-record', [App\Http\Controllers\RecordController::class, 'index'])->name('select.record');
+Route::get('/record/{id}', [App\Http\Controllers\RecordController::class, 'show'])->name('record.show');
+
 // Route::resource('form', PdfController::class);
 // Route::match(['GET', 'POST'], '/generate-pdf', [PdfController::class, 'generatePdf'])->name('generate.pdf');
 
-// Route::resource('pdfs', PdfController::class);
-Route::get('/generar-pdf', [PdfController::class, 'generarPDF'])->name('generarpdf');
-// Route::match(['GET', 'POST'], '/generarpdf', [PdfController::class, 'generarPDF'])->name('generarpdf');
+// Route::resource('pdfprint', PdfprintController::class)->names('select');
+
+// Route::get('/generar-pdf', [PdfprintController::class, 'generarPDF'])->name('pdfprintgenerarpdf');
 
 // Route::get('/generate-pdf-form', function () {
 //     return view('pdf.form');

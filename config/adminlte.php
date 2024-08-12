@@ -473,8 +473,8 @@ return [
         ],
         [
             'text' => 'PDF',
-            'url' => '/generar-pdf',
-            'icon' => 'fas fa-fw fa-PDF',
+            'url' => 'select-record',
+            'icon' => 'fas fa-fw fa-file-pdf',
         ],
     ],
 
