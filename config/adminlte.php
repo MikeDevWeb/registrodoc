@@ -471,6 +471,11 @@ return [
             'url' => 'reconocimientos',
             'icon' => 'fas fa-fw fa-award',
         ],
+        [
+            'text' => 'PDF',
+            'url' => '/generar-pdf',
+            'icon' => 'fas fa-fw fa-PDF',
+        ],
     ],
 
     /*
@@ -613,10 +618,6 @@ return [
         ],
     ],
 
-    'providers' => [
-        // Otros proveedores de servicios...
-        Barryvdh\DomPDF\ServiceProvider::class,
-    ],
     /*
     |--------------------------------------------------------------------------
     | Livewire

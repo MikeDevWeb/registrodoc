@@ -27,6 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         App::setLocale('es');
+
         return view('home');
     }
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticulogeneralController;
 use App\Http\Controllers\ArticulorevistaController;
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PdfsController;
 use App\Http\Controllers\ReconocimientoController;
 use App\Mail\HelloMail;
@@ -43,7 +44,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['register' => false, 'reset' => false, 'verify' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -52,19 +53,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //     dump($query->sql);
 // });
 Route::resource('datospersonas', DatospersonaController::class);
-// Route::get('/datospersonas/pdf', [DatospersonaController::class, 'generarPDF'])->name('datospersonas.pdf');
-
 Route::resource('datospersonbs', DatospersonbController::class);
-
-
-
-// web.php
-// Route::post('/generate-pdf', [PdfsController::class, 'generatePdf'])->name('generate.pdf');
-
-// web.php
-Route::post('/generate-pdf', [PdfsController::class, 'generatePdf'])->name('generate.pdf');
-
-
+Route::resource('contactos', ContactoController::class);
 Route::resource('expdocentes', ExpdocenteController::class);
 Route::resource('expoconferencias', ExpoconferenciaController::class);
 Route::resource('expoeventos', ExpoeventoController::class);
@@ -78,7 +68,18 @@ Route::resource('libropublicados', LibropublicadoController::class);
 Route::resource('textopublicados', TextopublicadoController::class);
 Route::resource('tutortribunals', TutortribunalController::class);
 Route::resource('trabproyinvconcluidos', TrabproyinvconcluidoController::class);
-Route::resource('contactos', ContactoController::class);
 Route::resource('articulogenerals', ArticulogeneralController::class);
 Route::resource('articulorevistas', ArticulorevistaController::class);
 Route::resource('reconocimientos', ReconocimientoController::class);
+// Route::resource('form', PdfController::class);
+// Route::match(['GET', 'POST'], '/generate-pdf', [PdfController::class, 'generatePdf'])->name('generate.pdf');
+
+// Route::resource('pdfs', PdfController::class);
+Route::get('/generar-pdf', [PdfController::class, 'generarPDF'])->name('generarpdf');
+// Route::match(['GET', 'POST'], '/generarpdf', [PdfController::class, 'generarPDF'])->name('generarpdf');
+
+// Route::get('/generate-pdf-form', function () {
+//     return view('pdf.form');
+// })->name('generate.pdf.form');
+
+// Route::post('/generate-pdf', [PdfController::class, 'generatePdf'])->name('generate.pdf');

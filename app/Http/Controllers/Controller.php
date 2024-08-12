@@ -17,11 +17,15 @@ class Controller extends BaseController
      */
     public function __construct(Request $request)
     {
-        $locale = $request->segment(1);
 
-        if ($locale === 'es') {
-            \App::setLocale($locale);
+        // $locale = $request->segment(1);
+
+        // if ($locale === 'es') {
+        //     \App::setLocale($locale);
+        // } else {
+        //     \App::setLocale('es');
+        //     }
         }
-    }
+
     use AuthorizesRequests, ValidatesRequests;
 }
