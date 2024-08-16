@@ -16,7 +16,8 @@
 
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" onclick="window.print()">Print</button>
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button id="show-modal" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#recordModal">Mostrar modal</button>
+    <a href="{{ route('record.modal', $selectedRecord->id) }}">Ver detalle</a>
   </div>
 </div>
 

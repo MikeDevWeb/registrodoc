@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Print View</title>
-</head>
-<body>
+@extends('adminlte::page')
   @yield('content')
 
-  <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
-</body>
-</html>
 @section('css')
 <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}">
 <style>
@@ -28,4 +20,7 @@
     padding: 5px;
     }
 </style>
+@endsection
+@section('js')
+  <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
 @endsection

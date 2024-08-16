@@ -78,7 +78,7 @@ Route::resource('reconocimientos', ReconocimientoController::class);
 
 Route::get('/select-record', [App\Http\Controllers\RecordController::class, 'index'])->name('select.record');
 Route::get('/record/{id}', [App\Http\Controllers\RecordController::class, 'show'])->name('record.show');
-
+Route::get('/record-modal/{id}', [App\Http\Controllers\RecordController::class, 'showModal'])->name('record.modal');
 // Route::resource('form', PdfController::class);
 // Route::match(['GET', 'POST'], '/generate-pdf', [PdfController::class, 'generatePdf'])->name('generate.pdf');
 

@@ -22,6 +22,7 @@
 function submitForm() {
   var selectedId = document.getElementById('datospersona_id').value;
   window.location.href = "{{ route('record.show', ':id') }}".replace(':id', selectedId);
+
 }
 </script>
 

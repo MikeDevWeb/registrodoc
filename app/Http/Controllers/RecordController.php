@@ -16,9 +16,14 @@ class RecordController extends Controller
     public function show(Request $request, $id)
     {
         $selectedRecord = Datospersona::find($id);
-        // Fetch related data from other tables
-        // Example: $relatedData = $selectedRecord->relatedTable()->get();
-
-        return view('print_view', compact('selectedRecord'));
+        // $relatedData = $selectedRecord->relatedTable()->get();
+        $record = $selectedRecord;
+        return view('record_modal', compact('selectedRecord', 'record'));
     }
+    // public function showModal($id)
+    // {
+    //     $record = Datospersona::find($id);
+    //     $datosPersona = Datospersona::all($id);
+    //     return view('record_modal', compact('record', 'datosPersona'));
+    // }
 }
