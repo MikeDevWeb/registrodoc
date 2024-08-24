@@ -67,148 +67,219 @@ class Datospersona extends Model
         return $this->belongsTo(\App\Models\User::class, 'user_id', 'id');
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function articulogenerals()
-    {
-        return $this->hasMany(\App\Models\Articulogeneral::class, 'id', 'datospersona_id');
+    public function articulogenerals() {
+        return $this->hasMany(Articulogeneral::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function articulorevistas()
-    {
-        return $this->hasMany(\App\Models\Articulorevista::class, 'id', 'datospersona_id');
+    public function articulorevistas() {
+        return $this->hasMany(Articulorevista::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function contactos()
-    {
-        return $this->hasMany(\App\Models\Contacto::class, 'id', 'datospersona_id');
+    public function contactos() {
+        return $this->hasMany(Contacto::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function datospersonbs()
-    {
-        return $this->hasMany(\App\Models\Datospersonb::class, 'id', 'datospersona_id');
+    public function datospersonbs() {
+        return $this->hasMany(Datospersonb::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function expdocentes()
-    {
-        return $this->hasMany(\App\Models\Expdocente::class, 'id', 'datospersona_id');
+    public function expdocentes() {
+        return $this->hasMany(Expdocente::class);
+    }
+    public function expoconferencias() {
+        return $this->hasMany(Expoconferencia::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function expoconferencias()
-    {
-        return $this->hasMany(\App\Models\Expoconferencia::class, 'id', 'datospersona_id');
+    public function expoeventos() {
+        return $this->hasMany(Expoevento::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function expoeventos()
-    {
-        return $this->hasMany(\App\Models\Expoevento::class, 'id', 'datospersona_id');
+    public function exposeminarios() {
+        return $this->hasMany(Exposeminario::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function exposeminarios()
-    {
-        return $this->hasMany(\App\Models\Exposeminario::class, 'id', 'datospersona_id');
+    public function expprograrels() {
+        return $this->hasMany(Expprograrel::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function expprograrels()
-    {
-        return $this->hasMany(\App\Models\Expprograrel::class, 'id', 'datospersona_id');
+    public function formcursos() {
+        return $this->hasMany(Formcurso::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function formcursos()
-    {
-        return $this->hasMany(\App\Models\Formcurso::class, 'id', 'datospersona_id');
+    public function formpostgrados() {
+        return $this->hasMany(Formpostgrado::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function formpostgrados()
-    {
-        return $this->hasMany(\App\Models\Formpostgrado::class, 'id', 'datospersona_id');
+    public function formprofesionals() {
+        return $this->hasMany(Formprofesional::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function formprofesionals()
-    {
-        return $this->hasMany(\App\Models\Formprofesional::class, 'id', 'datospersona_id');
+    public function funcadminacads() {
+        return $this->hasMany(Funcadminacad::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function funcadminacads()
-    {
-        return $this->hasMany(\App\Models\Funcadminacad::class, 'id', 'datospersona_id');
+    public function libropublicados() {
+        return $this->hasMany(Libropublicado::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function libropublicados()
-    {
-        return $this->hasMany(\App\Models\Libropublicado::class, 'id', 'datospersona_id');
+    public function reconocimientos() {
+        return $this->hasMany(Reconocimiento::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function reconocimientos()
-    {
-        return $this->hasMany(\App\Models\Reconocimiento::class, 'id', 'datospersona_id');
+    public function textopublicados() {
+        return $this->hasMany(Textopublicado::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function textopublicados()
-    {
-        return $this->hasMany(\App\Models\Textopublicado::class, 'id', 'datospersona_id');
+    public function tutortribunals() {
+        return $this->hasMany(Tutortribunal::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function trabproyinvconcluidos()
-    {
-        return $this->hasMany(\App\Models\Trabproyinvconcluido::class, 'id', 'datospersona_id');
+    public function trabproyinvconcluidos() {
+        return $this->hasMany(Trabproyinvconcluido::class);
     }
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function tutortribunals()
-    {
-        return $this->hasMany(\App\Models\Tutortribunal::class, 'id', 'datospersona_id');
-    }
+    // /**
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  */
+    // public function articulogenerals()
+    // {
+    //     return $this->hasMany(\App\Models\Articulogeneral::class, 'id', 'datospersona_id');
+    // }
+
+    // /**
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  */
+    // public function articulorevistas()
+    // {
+    //     return $this->hasMany(\App\Models\Articulorevista::class, 'id', 'datospersona_id');
+    // }
+
+    // /**
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  */
+    // public function contactos()
+    // {
+    //     return $this->hasMany(\App\Models\Contacto::class, 'id', 'datospersona_id');
+    // }
+
+    // /**
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  */
+    // public function datospersonbs()
+    // {
+    //     return $this->hasMany(\App\Models\Datospersonb::class, 'id', 'datospersona_id');
+    // }
+
+    // /**
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  */
+    // public function expdocentes()
+    // {
+    //     return $this->hasMany(\App\Models\Expdocente::class, 'id', 'datospersona_id');
+    // }
+
+    // /**
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  */
+    // public function expoconferencias()
+    // {
+    //     return $this->hasMany(\App\Models\Expoconferencia::class, 'id', 'datospersona_id');
+    // }
+
+    // /**
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  */
+    // public function expoeventos()
+    // {
+    //     return $this->hasMany(\App\Models\Expoevento::class, 'id', 'datospersona_id');
+    // }
+
+    // /**
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  */
+    // public function exposeminarios()
+    // {
+    //     return $this->hasMany(\App\Models\Exposeminario::class, 'id', 'datospersona_id');
+    // }
+
+    // /**
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  */
+    // public function expprograrels()
+    // {
+    //     return $this->hasMany(\App\Models\Expprograrel::class, 'id', 'datospersona_id');
+    // }
+
+    // /**
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  */
+    // public function formcursos()
+    // {
+    //     return $this->hasMany(\App\Models\Formcurso::class, 'id', 'datospersona_id');
+    // }
+
+    // /**
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  */
+    // public function formpostgrados()
+    // {
+    //     return $this->hasMany(\App\Models\Formpostgrado::class, 'id', 'datospersona_id');
+    // }
+
+    // /**
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  */
+    // public function formprofesionals()
+    // {
+    //     return $this->hasMany(\App\Models\Formprofesional::class, 'id', 'datospersona_id');
+    // }
+
+    // /**
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  */
+    // public function funcadminacads()
+    // {
+    //     return $this->hasMany(\App\Models\Funcadminacad::class, 'id', 'datospersona_id');
+    // }
+
+    // /**
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  */
+    // public function libropublicados()
+    // {
+    //     return $this->hasMany(\App\Models\Libropublicado::class, 'id', 'datospersona_id');
+    // }
+
+    // /**
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  */
+    // public function reconocimientos()
+    // {
+    //     return $this->hasMany(\App\Models\Reconocimiento::class, 'id', 'datospersona_id');
+    // }
+
+    // /**
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  */
+    // public function textopublicados()
+    // {
+    //     return $this->hasMany(\App\Models\Textopublicado::class, 'id', 'datospersona_id');
+    // }
+
+    // /**
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  */
+    // public function trabproyinvconcluidos()
+    // {
+    //     return $this->hasMany(\App\Models\Trabproyinvconcluido::class, 'id', 'datospersona_id');
+    // }
+
+    // /**
+    //  * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    //  */
+    // public function tutortribunals()
+    // {
+    //     return $this->hasMany(\App\Models\Tutortribunal::class, 'id', 'datospersona_id');
+    // }
 
 }

@@ -1,4 +1,4 @@
-@extends('print_layout')
+@extends('adminlte::page')
 
 @section('content')
 
@@ -15,10 +15,14 @@
   </div>
 
   <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" onclick="window.print()">Print</button>
-    <button id="show-modal" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#recordModal">Mostrar modal</button>
-    <a href="{{ route('record.modal', $selectedRecord->id) }}">Ver detalle</a>
+    <button type="button" class="btn btn-secondary" onclick="window.print('')">Print</button>
+    <button id="show-modal" class="btn btn-primary" data-toggle="modal" data-target="#recordModal">Mostrar modal</button>
+
+    {{-- <a href="{{ route('record.modal', $selectedRecord->id) }}">Ver detalle</a> --}}
   </div>
 </div>
 
+@endsection
+@section('css')
+<link rel="icon" href="{{ asset('vendor/adminlte/dist/img/ICONO_esam.png') }}" type="image/png" sizes="16x16">
 @endsection

@@ -1,8 +1,10 @@
-@extends('adminlte::page')
+@extends('print_layout')
   @yield('content')
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/adminlte.min.css') }}">
+<link rel="icon" href="{{ asset('vendor/adminlte/dist/img/ICONO_esam.png') }}" type="image/png" sizes="16x16">
+
 <style>
     @page {
     size: letter landscape;

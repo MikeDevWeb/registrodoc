@@ -1,4 +1,3 @@
-<link rel="icon" href="{{ asset('vendor/adminlte/dist/img/ICONO_esam.png') }}" type="image/png" sizes="16x16">
 @extends('adminlte::page')
 
 @section('template_title')
@@ -90,6 +89,8 @@
   <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="../../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="icon" href="{{ asset('vendor/adminlte/dist/img/ICONO_esam.png') }}" type="image/png" sizes="16x16">
+
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 @endsection
@@ -127,7 +128,7 @@
       "responsive": true,
       "language": {
         location: "es-ES",
-        url: "//cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json"
+        url: "//cdn.datatables.net/plug-ins/1.11.3/i18n/Spanish.json"
         },
         "scrollX": true,
     }).buttons().container().appendTo('#tablita_wrapper .col-md-6:eq(0)');

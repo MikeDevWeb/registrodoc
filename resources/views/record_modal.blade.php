@@ -1,5 +1,7 @@
 @extends('print_view')
-@yield('content')
+
+@section('content')
+
 <div class="modal fade" id="recordModal" tabindex="-1" role="dialog" aria-labelledby="recordModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -30,19 +32,45 @@
             </thead>
             <tbody>
               <tr>
-                <td>{{ $record->nombre }}</td>
-                <td>{{ $record->apellidoPaterno }}</td>
-                <td>{{ $record->apellidoMaterno }}</td>
-                <td>{{ $record->profesion }}</td>
-                <td>{{ $record->fechaNacimiento }}</td>
-                <td>{{ $record->lugarNacimiento }}</td>
-                <td>{{ $record->edad }}</td>
-                <td>{{ $record->estadoCivil }}</td>
-                <td>{{ $record->sexo }}</td>
-                <td>{{ $record->carnetidentidad }}</td>
-                <td>{{ $record->ciexpedido }}</td>
+                <td>{{ $selectedRecord->nombre }}</td>
+                <td>{{ $selectedRecord->apellidoPaterno }}</td>
+                <td>{{ $selectedRecord->apellidoMaterno }}</td>
+                <td>{{ $selectedRecord->profesion }}</td>
+                <td>{{ $selectedRecord->fechaNacimiento }}</td>
+                <td>{{ $selectedRecord->lugarNacimiento }}</td>
+                <td>{{ $selectedRecord->edad }}</td>
+                <td>{{ $selectedRecord->estadoCivil }}</td>
+                <td>{{ $selectedRecord->sexo }}</td>
+                <td>{{ $selectedRecord->carnetidentidad }}</td>
+                <td>{{ $selectedRecord->ciexpedido }}</td>
               </tr>
             </tbody>
+            <thead>
+                <tr>
+                  <th>Idioma Nativo</th>
+                  <th>Nivel Habla</th>
+                  <th>Nivel Escritura</th>
+                  <th>Nivel Lectura</th>
+                  <th>Idioma Secundario</th>
+                  <th>Nivel Habla</th>
+                  <th>Nivel Escritura</th>
+                  <th>Nivel Lectura</th>
+                </tr>
+              </thead>
+              @foreach ($relatedModels['datospersonb'] as $datospersonb)
+              <tbody>
+                <tr>
+                  <td >{{ $datospersonb->idiomaNativo }}</td>
+                  <td >{{ $datospersonb->nivelidiomaescritura }}</td>
+                  <td >{{ $datospersonb->nivelidiomalectura }}</td>
+                  <td >{{ $datospersonb->nivelidiomahabla }}</td>
+                  <td >{{ $datospersonb->idiomaSecundario }}</td>
+                  <td >{{ $datospersonb->nivelidiomaSecundarioescritura }}</td>
+                  <td >{{ $datospersonb->nivelidiomaSecundariolectura }}</td>
+                  <td >{{ $datospersonb->nivelidiomaSecundariohabla }}</td>
+                </tr>
+              </tbody>
+              @endforeach
           </table>
         </div>
       </div>
@@ -50,8 +78,14 @@
   </div>
 </div>
 
+@section('script')
 <script>
     $('#show-modal').on('click', function() {
       $('#recordModal').modal('show');
     });
 </script>
+@endsection
+@section('css')
+<link rel="icon" href="{{ asset('vendor/adminlte/dist/img/ICONO_esam.png') }}" type="image/png" sizes="16x16">
+
+@endsection

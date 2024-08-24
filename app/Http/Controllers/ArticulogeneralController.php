@@ -7,6 +7,7 @@ use App\Models\Datospersona;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\ArticulogeneralRequest;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -14,14 +15,15 @@ class ArticulogeneralController extends Controller
 {
     public function __construct()
     {
-
         $this->middleware('auth');
+        App::setLocale('es');
     }
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request): View
     {
+        App::setLocale('es');
         $articulogenerals = Articulogeneral::with('user')->paginate();
         $datospersonas = Datospersona::all();
         $datospersona = $datospersonas;
@@ -93,3 +95,4 @@ class ArticulogeneralController extends Controller
     }
 
 }
+

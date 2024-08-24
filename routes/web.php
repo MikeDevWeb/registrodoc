@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\ArchivoController;
 use App\Http\Controllers\ArticulogeneralController;
 use App\Http\Controllers\ArticulorevistaController;
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\DatospersonaViewController;
 use App\Http\Controllers\DocenteController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PdfprintController;
@@ -43,6 +45,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
 
+    app()->setLocale('es');
     return view('welcome');
 });
 
@@ -54,6 +57,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // DB::listen(function($query) {
 //     dump($query->sql);
 // });
+
+
 Route::resource('datospersonas', DatospersonaController::class);
 Route::resource('datospersonbs', DatospersonbController::class);
 Route::resource('contactos', ContactoController::class);
@@ -74,11 +79,17 @@ Route::resource('articulogenerals', ArticulogeneralController::class);
 Route::resource('articulorevistas', ArticulorevistaController::class);
 Route::resource('reconocimientos', ReconocimientoController::class);
 
+Route::get('/datospersonas', [DatospersonaViewController::class, 'index'])->name('datospersonas.index');
+Route::get('/datospersonas/{id}/view', [DatospersonaViewController::class, 'show'])->name('datospersonas.show');
+// Route::get('/datospersonas/{id}/view', [DatospersonaViewController::class, 'show'])->name('datospersonas.view');
 
 
-Route::get('/select-record', [App\Http\Controllers\RecordController::class, 'index'])->name('select.record');
-Route::get('/record/{id}', [App\Http\Controllers\RecordController::class, 'show'])->name('record.show');
-Route::get('/record-modal/{id}', [App\Http\Controllers\RecordController::class, 'showModal'])->name('record.modal');
+// Route::get('/select-record', [App\Http\Controllers\RecordController::class, 'index'])->name('select.record');
+// Route::get('/record/{id}', [App\Http\Controllers\RecordController::class, 'show'])->name('record.show');
+// Route::get('/record-modal/{id}', [App\Http\Controllers\RecordController::class, 'showModal'])->name('record.modal');
+
+
+
 // Route::resource('form', PdfController::class);
 // Route::match(['GET', 'POST'], '/generate-pdf', [PdfController::class, 'generatePdf'])->name('generate.pdf');
 

@@ -147,16 +147,18 @@ return [
     |--------------------------------------------------------------------------
     |
     | The application locale determines the default locale that will be used
-    | by Laravel's translation / localization methods. This option can be
+    | by Laravel's translation / localization methods. This option cannot be
     | set to any locale for which you plan to have translation strings.
     |
     */
 
     'locale' => 'es',
 
-    'fallback_locale' => env('APP_FALLBACK_LOCALE', 'es'),
+    'locales' => ['es'],
 
-    'faker_locale' => env('APP_FAKER_LOCALE', 'es_ES'),
+    'fallback_locale' => 'es',
+
+    'faker_locale' => 'es_ES',
 
     /*
     |--------------------------------------------------------------------------
