@@ -79,8 +79,9 @@ Route::resource('articulogenerals', ArticulogeneralController::class);
 Route::resource('articulorevistas', ArticulorevistaController::class);
 Route::resource('reconocimientos', ReconocimientoController::class);
 
-Route::get('/datospersonas', [DatospersonaViewController::class, 'index'])->name('datospersonas.index');
-Route::get('/datospersonas/{id}/view', [DatospersonaViewController::class, 'show'])->name('datospersonas.show');
+Route::get('/datospersons', [DatospersonaViewController::class, 'index'])->name('datospersons.index');
+Route::get('/datospersons/datatable', [App\Http\Controllers\DatospersonaController::class, 'dataTable'])->name('datospersons.datatable');
+Route::get('/datospersons/{id}/view', [DatospersonaViewController::class, 'show'])->name('datospersons.show');
 // Route::get('/datospersonas/{id}/view', [DatospersonaViewController::class, 'show'])->name('datospersonas.view');
 
 

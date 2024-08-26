@@ -473,7 +473,7 @@ return [
         ],
         [
             'text' => 'PDF',
-            'url' => '/datospersonas',
+            'url' => '/datospersons',
             'icon' => 'fas fa-fw fa-file-pdf',
         ],
     ],

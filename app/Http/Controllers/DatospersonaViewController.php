@@ -35,8 +35,8 @@ class DatospersonaViewController extends Controller
             'tutortribunals'
         ])->findOrFail($id);
 
-        return view('datospersonas.view', compact('datospersona'));
+        // return view('datospersonas.view', compact('datospersona'));
 
-        // return view('datospersonas.view', ['datospersona' => $datospersona]);
+        return view('datospersonas.view', ['datospersona' => $datospersona]);
     }
 }
