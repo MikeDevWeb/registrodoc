@@ -93,8 +93,7 @@
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 @endsection
 @section('js')
-    {{-- <script src="//cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
-    <script>let table = new DataTable('#tablita');</script> --}}
+
 <!-- jQuery -->
 <script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
@@ -104,14 +103,7 @@
 <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-{{-- <script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="../../plugins/jszip/jszip.min.js"></script>
-<script src="../../plugins/pdfmake/pdfmake.min.js"></script>
-<script src="../../plugins/pdfmake/vfs_fonts.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="../../plugins/datatables-buttons/js/buttons.colVis.min.js"></script> --}}
+
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
@@ -126,7 +118,7 @@
       "responsive": true,
       "language": {
         location: "es-ES",
-        url: "//cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json"
+        url: "//cdn.datatables.net/plug-ins/1.10.18/i18n/Spanish.json"
         },
         "scrollX": true,
     }).buttons().container().appendTo('#tablita_wrapper .col-md-6:eq(0)');

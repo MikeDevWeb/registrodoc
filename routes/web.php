@@ -80,26 +80,5 @@ Route::resource('articulorevistas', ArticulorevistaController::class);
 Route::resource('reconocimientos', ReconocimientoController::class);
 
 Route::get('/datospersons', [DatospersonaViewController::class, 'index'])->name('datospersons.index');
-Route::get('/datospersons/datatable', [App\Http\Controllers\DatospersonaController::class, 'dataTable'])->name('datospersons.datatable');
+
 Route::get('/datospersons/{id}/view', [DatospersonaViewController::class, 'show'])->name('datospersons.show');
-// Route::get('/datospersonas/{id}/view', [DatospersonaViewController::class, 'show'])->name('datospersonas.view');
-
-
-// Route::get('/select-record', [App\Http\Controllers\RecordController::class, 'index'])->name('select.record');
-// Route::get('/record/{id}', [App\Http\Controllers\RecordController::class, 'show'])->name('record.show');
-// Route::get('/record-modal/{id}', [App\Http\Controllers\RecordController::class, 'showModal'])->name('record.modal');
-
-
-
-// Route::resource('form', PdfController::class);
-// Route::match(['GET', 'POST'], '/generate-pdf', [PdfController::class, 'generatePdf'])->name('generate.pdf');
-
-// Route::resource('pdfprint', PdfprintController::class)->names('select');
-
-// Route::get('/generar-pdf', [PdfprintController::class, 'generarPDF'])->name('pdfprintgenerarpdf');
-
-// Route::get('/generate-pdf-form', function () {
-//     return view('pdf.form');
-// })->name('generate.pdf.form');
-
-// Route::post('/generate-pdf', [PdfController::class, 'generatePdf'])->name('generate.pdf');
