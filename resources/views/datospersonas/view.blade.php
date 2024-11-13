@@ -439,34 +439,29 @@
 
 @section('css')
     <style>
-        /* Estilo para el div con scroll interno en la vista normal */
         .scrollable-div {
-            max-height: none; /*Ajusta este valor según el diseño */
+            max-height: none;
             overflow-y: auto;
             padding: 5px;
-            border: 1px solid #ccc; /* Opcional, para una mejor visualización del div */
-            background-color: #fff; /* Opcional, para un fondo blanco */
+            border: 1px solid #ccc;
+            background-color: #fff;
         }
 
-        /* Evita el scroll de la página en la vista normal */
         /* .content-wrapper {
             overflow: hidden;
         } */
 
-        /* Estilos específicos para la impresión */
         @media print {
-            /* Oculta elementos no imprimibles */
             body {
-                font-size: 12px; /* Ajusta el tamaño de fuente para la impresión si es necesario */
+                font-size: 12px;
                 font-family: Georgia, 'Times New Roman', Times, serif;
             }
             .no-print {
                 display: none;
             }
 
-            /* Opcional: Si quieres ajustar la fuente para que todo quepa mejor en la impresión */
             body {
-                font-size: 12px; /* Ajusta el tamaño de fuente para la impresión si es necesario */
+                font-size: 12px;
                 font-family: Georgia, 'Times New Roman', Times, serif;
             }
         }
